@@ -12,7 +12,19 @@ CREATE TABLE users (
     name VARCHAR,                                                  -- name of the user
     email VARCHAR UNIQUE,                                          -- email address
     password VARCHAR,                                              -- password hash
+    department VARCHAR,                                            -- department of the user
     role VARCHAR CHECK (role IN ('client', 'agent', 'admin'))      -- role of the user
+);
+
+CREATE TABLE departments (
+    id INTEGER PRIMARY KEY,                                        -- department id
+    name VARCHAR,                                                  -- name of the department
+);
+
+-- many-to-many relationship between users and departments
+CREATE TABLE users_departments (
+    user_id VARCHAR REFERENCES user(username),                     -- username of the user
+    department_id INTEGER REFERENCES department(id)                -- department id
 );
 
 CREATE TABLE tickets (
