@@ -1,3 +1,9 @@
+<?php 
+    require_once('templates/common.php');
+
+    if(!isset($_SESSION['user'])){
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -8,19 +14,26 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
     </head>
     <body>
-        <div class="main">
+        <div class="main main-register">
             <div class="main-text">
-                <a href="index.html">Trouble<br/>Tickets</a>
+                <a href="index.php">Trouble<br/>Tickets</a>
                 <h2>We're here to help!<br/>Submit your tickets today.</h2>
                 <img src="icons/ticket.png" alt="">
             </div>
             <form action="ticket.php" method="post">
-                <p>Welcome!</p>
+                <p>Sign up</p>
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="username" placeholder="Username" required>
                 <input type="email" name="email" placeholder="Email" required>
-                <input type="text" name="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-                <p>Don't have an account? <a href="register.html">Sign up</a></p>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm password" required>
+                <button type="submit">Sign up</button>
             </form>
         </div>
     </body>
 </html>
+
+<?php
+    } else 
+        header('Location: index.php');
+?>
