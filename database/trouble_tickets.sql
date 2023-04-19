@@ -31,7 +31,7 @@ CREATE TABLE tickets (
   client INTEGER REFERENCES users(username),                       -- client id
   agent INTEGER REFERENCES users(username),                        -- agent id 
   status VARCHAR,                                                  -- status of the ticket
-  department VARCHAR,                                              -- ticket department
+  department VARCHAR REFERENCES departments(id),                   -- ticket department
   title VARCHAR,                                                   -- title of the article
   date INTEGER,                                                    -- date when the article was published in epoch format
   introduction VARCHAR,                                            -- an introductory paragraph
@@ -47,8 +47,16 @@ CREATE TABLE ticket_history (
   id INTEGER PRIMARY KEY,                                          -- ticket_history id
   ticket_id INTEGER REFERENCES tickets(id),                        -- ticket id
   user INTEGER REFERENCES users(username),                         -- user id
-  action VARCHAR,                                                  -- action
+  action VARCHAR,                                                  -- action description
   action_date VARCHAR                                              -- action date
+);
+
+CREATE TABLE ticket_replies (
+  id INTEGER PRIMARY KEY,                                          -- ticket_reply id
+  ticket_id INTEGER REFERENCES tickets(id),                        -- ticket id
+  user INTEGER REFERENCES users(username),                         -- user id
+  reply VARCHAR,                                                   -- reply
+  reply_date INTEGER                                               -- reply date
 );
 
 -- many-to-many relationship between tickets and hashtags
