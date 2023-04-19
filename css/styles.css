@@ -73,6 +73,10 @@ body {
     border-radius: 5px;
 }
 
+.main > img {
+    
+}
+
 header a {
     text-decoration: none;
     color: #fff;
