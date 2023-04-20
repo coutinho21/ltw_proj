@@ -10,6 +10,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 3.5fr .5fr;
     grid-template-rows: 1fr 1fr 7fr;
+    margin: 0;
+    padding: 0;
 }
 
 body > header {
@@ -29,7 +31,7 @@ body > header > a {
     font-weight: 900;
     color: #FFFFFF;
     text-decoration: none;
-    padding: 2px;
+    padding: 2px 6px;
     margin: .5em;
 }
 
@@ -58,19 +60,40 @@ body > header > img {
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr;
 
-    margin: .5em;
-    padding: .5em;
+    margin-top: 1em;
+    padding: .6em .3em .3em .3em;
     align-items: center;
 }
 
 .add-and-search > h2 {
     grid-column: 1 / 2;
+
+    color: #FFFFFF;
+    background-color: #939391;
+    font-size: 1.5em;
+    font-weight: lighter;
+    margin: .3em;
+    padding: .4em 1em;
+    width: auto;
+    justify-self: start;
+    justify-content: center;
+    border-style: none;
 }
+
 .add-and-search > input {
     grid-column: 2 / -1;
 
+    font-size: 1em;
+    font-weight: lighter;
+
     height: 3vw;
     width: 70%;
+    border-style: none;
+
+}
+.add-and-search > input::placeholder {
+    padding: .5em;
+    color: #939391;
 }
 
 .main-content {
