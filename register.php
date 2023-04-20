@@ -1,3 +1,9 @@
+<?php 
+    require_once('templates/common.php');
+
+    if(!isset($_SESSION['user'])){
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -7,9 +13,9 @@
         <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
-        <div class="main">
+        <div class="main main-register">
             <div class="main-text">
-                <a href="index.html">Trouble<br/>Tickets</a>
+                <a href="index.php">Trouble<br/>Tickets</a>
                 <h2>We're here to help!<br/>Submit your tickets today.</h2>
                 <img src="icons/ticket.png" alt="">
             </div>
@@ -25,3 +31,8 @@
         </div>
     </body>
 </html>
+
+<?php
+    } else 
+        header('Location: index.php');
+?>
