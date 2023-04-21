@@ -27,7 +27,7 @@ body > header {
 }
 
 body > header > a {
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: 900;
     color: #FFFFFF;
     text-decoration: none;
@@ -57,12 +57,13 @@ body > header > img {
     grid-row: 2 / 3;
 
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr;
 
-    margin-top: 1em;
-    padding: .6em .3em .3em .3em;
+    margin-top: .5em;
+    padding: .2em;
     align-items: center;
+    /* justify-items: center; */
 }
 
 .add-and-search > h2 {
@@ -70,27 +71,34 @@ body > header > img {
 
     color: #FFFFFF;
     background-color: #939391;
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: lighter;
     margin: .3em;
     padding: .4em 1em;
-    width: auto;
-    justify-self: start;
-    justify-content: center;
+    width: 70%;
+    text-align: center;
+    text-justify: center;
     border-style: none;
+    border-radius: 4px; 
+}
+.add-and-search > h2:hover {
+    background-color: #b7b7b7;
 }
 
 .add-and-search > input {
     grid-column: 2 / -1;
 
-    font-size: 1em;
+    font-size: .8em;
     font-weight: lighter;
-
-    height: 3vw;
-    width: 70%;
-    border-style: none;
-
+    margin-left: 7.5em;
+    text-justify: center;
+    height: 32px;
+    width: 50%;
+    border-style: none; 
+    border-radius: 4px; 
+    background-color: white;
 }
+
 .add-and-search > input::placeholder {
     padding: .5em;
     color: #939391;
@@ -100,8 +108,97 @@ body > header > img {
     grid-column: 1 / -1;
     grid-row: 3 / -1;
 
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 74px;
 }
 
+.departments {
+    grid-column: 1 / 2;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #FFFFFF;
+    font-size: .8em;
+    margin: .7em;
+    padding: .4em .2em;
+    border-radius: 4px;
+}
+
+.departments > p {
+    text-align: center;
+    align-content: center;
+    margin: 0;
+}
+
+.departments > ul {
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    text-justify: center;
+    margin: 0;
+}
+
+.departments > ul  > li {
+    grid-row: 2 / -1;
+
+    text-align: center;
+    text-justify: center;
+    margin: 0;
+    list-style-type: none;
+}
+
+.tickets-list {
+    grid-column: 2 / -1;
+
+    text-align: center;
+    text-justify: center;
+    width: auto;
+    background-color: #FFFFFF;
+    font-size: .8em;
+    margin: .7em;
+    padding: .4em .2em;
+    border-radius: 4px;
+    /* overflow-y: auto; */
+}
+
+.tickets-list > ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.tickets-list > ul > li {
+    list-style-type: none;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+}
+
+.tickets-list > ul > li > p {
+    text-align: center;
+    text-justify: start;
+    padding: 5px;
+}
+
+.tickets-list > ul > li > p:nth-child(1) {
+    grid-column: 1 / 2;
+}
+.tickets-list > ul > li > p:nth-child(2) {
+    grid-column: 2 / 3;
+    margin-right: 4em;
+}
+.tickets-list > ul > li > p:nth-child(3) {
+    grid-column: 3 / 4;
+    max-width: 10ch;
+    flex-wrap: wrap;
+    margin-left: 4em;
+}
+.tickets-list > ul > li > p:nth-child(4) {
+    grid-column: 4 / -1;
+    margin-left: 1em;
+}
 
 
 
