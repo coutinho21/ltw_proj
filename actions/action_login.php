@@ -5,8 +5,8 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
     
-    if (userExists($username, $password))             // test if user exists
-        $_SESSION['username'] = $username;            // store the username
+    if (userExists($username, $password))
+        $_SESSION['username'] = $username;
 
-    header('Location: ' . $_SERVER['HTTP_REFERER']);  // redirect to the page we came from
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
