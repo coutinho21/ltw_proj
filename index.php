@@ -32,7 +32,76 @@
 
 <?php
     } else {                // if user is logged in, go to the main page
-        outputHeader();
-        outputFooter();
+        outputHeader(); ?>
+        <main class="main-content">
+            <div class="departments">
+                <p>All tickets</p>
+                <ul>
+                    <li><p>Department 1</p></li>
+                    <li><p>Department 2</p></li>
+                    <li><p>Department 3</p></li>
+                    <li><p>Department 4</p></li>
+                </ul>
+            </div>
+            <div class="tickets-list">
+                <ul>
+                    <li>
+                        <p>#0001</p>
+                        <p>This is the title of this ticket</p>
+                        <p>date of last update</p>
+                        <p>status</p>
+                    </li>
+                    <li>
+                        <p>#0001</p>
+                        <p>This is the title of this ticket</p>
+                        <p>date of last update</p>
+                        <p>status</p>
+                    </li>
+                    <li>
+                        <p>#0001</p>
+                        <p>This is the title of this ticket</p>
+                        <p>date of last update</p>
+                        <p>status</p>
+                    </li>
+                    <li>
+                        <p>#0001</p>
+                        <p>This is the title of this ticket</p>
+                        <p>date of last update</p>
+                        <p>status</p>
+                    </li>
+                    <li>
+                        <p>#0001</p>
+                        <p>This is the title of this ticket</p>
+                        <p>date of last update</p>
+                        <p>status</p>
+                    </li>
+                    <li>
+                        <p>#0001</p>
+                        <p>This is the title of this ticket</p>
+                        <p>date of last update</p>
+                        <p>status</p>
+                    </li>
+                    <li>
+                        <p>#0001</p>
+                        <p>This is the title of this ticket</p>
+                        <p>date of last update</p>
+                        <p>status</p>
+                    </li>
+                    <li>
+                        <p>#0001</p>
+                        <p>This is the title of this ticket</p>
+                        <p>date of last update</p>
+                        <p>status</p>
+                    </li>
+                    <li>
+                        <p>#0001</p>
+                        <p>This is the title of this ticket</p>
+                        <p>date of last update</p>
+                        <p>status</p>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    <?php outputFooter();
     }
 ?>
