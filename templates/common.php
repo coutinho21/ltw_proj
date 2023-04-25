@@ -16,9 +16,13 @@
             <header>
                 <nav>
                     <ul>
-                        <li><a href="index.php">Trouble <br /> Tickets</a></li>
-                        <li><h2>FAQs</h2></li>
-                        <li><img class="profile" src="icons/user.png" alt="user"/></li>
+                        <li><a class="main-title" href="index.php">Trouble<br/>Tickets</a></li>
+                        <li>
+                            <div class="nav-right">
+                                <a href="faqs.php">FAQs</a>
+                                <a href="profile.php"><img class="profile" src="icons/user.png" alt="user"/></a>
+                            </div>
+                        </li>
                     </ul>
                 </nav>
             </header>
