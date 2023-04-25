@@ -192,3 +192,14 @@ body > header img {
 li {
     list-style-type: none;
 }
+
+body > footer {
+    background-color: #4A4A4A;
+    height: 3em;  
+}
+
+body > footer > p {
+    text-align: center;
+    text-justify: center;
+    padding-top: 1em;
+}
