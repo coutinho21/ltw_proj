@@ -12,7 +12,6 @@
             <link rel="stylesheet" href="css/styles.css">
             <link rel="stylesheet" href="css/homepage_client_style.css">
         </head>
-
         <body>
             <header>
                 <nav>

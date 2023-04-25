@@ -50,58 +50,84 @@
             <div class="tickets-list">
                 <ul>
                     <li>
-                        <p>#0001</p>
-                        <p>This is the title of this ticket</p>
-                        <p>date of last update</p>
-                        <p>status</p>
+                        <ul>
+                            <li><p>#0001</p></li>
+                            <li><p>This is the title of this ticket</p></li>
+                            <li><p>date of last update</p></li>
+                            <li><p>status</p></li>
+                        </ul>
                     </li>
                     <li>
-                        <p>#0001</p>
-                        <p>This is the title of this ticket</p>
-                        <p>date of last update</p>
-                        <p>status</p>
+                        <ul>
+                            <li><p>#0002</p></li>
+                            <li><p>This is the title of this ticket</p></li>
+                            <li><p>date of last update</p></li>
+                            <li><p>status</p></li>
+                        </ul>
                     </li>
                     <li>
-                        <p>#0001</p>
-                        <p>This is the title of this ticket</p>
-                        <p>date of last update</p>
-                        <p>status</p>
+                        <ul>
+                            <li><p>#0003</p></li>
+                            <li><p>This is the title of this ticket</p></li>
+                            <li><p>date of last update</p></li>
+                            <li><p>status</p></li>
+                        </ul>
                     </li>
                     <li>
-                        <p>#0001</p>
-                        <p>This is the title of this ticket</p>
-                        <p>date of last update</p>
-                        <p>status</p>
+                        <ul>
+                            <li><p>#0004</p></li>
+                            <li><p>This is the title of this ticket</p></li>
+                            <li><p>date of last update</p></li>
+                            <li><p>status</p></li>
+                        </ul>
                     </li>
                     <li>
-                        <p>#0001</p>
-                        <p>This is the title of this ticket</p>
-                        <p>date of last update</p>
-                        <p>status</p>
+                        <ul>
+                            <li><p>#0005</p></li>
+                            <li><p>This is the title of this ticket</p></li>
+                            <li><p>date of last update</p></li>
+                            <li><p>status</p></li>
+                        </ul>
                     </li>
                     <li>
-                        <p>#0001</p>
-                        <p>This is the title of this ticket</p>
-                        <p>date of last update</p>
-                        <p>status</p>
+                        <ul>
+                            <li><p>#0006</p></li>
+                            <li><p>This is the title of this ticket</p></li>
+                            <li><p>date of last update</p></li>
+                            <li><p>status</p></li>
+                        </ul>
                     </li>
                     <li>
-                        <p>#0001</p>
-                        <p>This is the title of this ticket</p>
-                        <p>date of last update</p>
-                        <p>status</p>
+                        <ul>
+                            <li><p>#0007</p></li>
+                            <li><p>This is the title of this ticket</p></li>
+                            <li><p>date of last update</p></li>
+                            <li><p>status</p></li>
+                        </ul>
                     </li>
                     <li>
-                        <p>#0001</p>
-                        <p>This is the title of this ticket</p>
-                        <p>date of last update</p>
-                        <p>status</p>
+                        <ul>
+                            <li><p>#0008</p></li>
+                            <li><p>This is the title of this ticket</p></li>
+                            <li><p>date of last update</p></li>
+                            <li><p>status</p></li>
+                        </ul>
                     </li>
                     <li>
-                        <p>#0001</p>
-                        <p>This is the title of this ticket</p>
-                        <p>date of last update</p>
-                        <p>status</p>
+                        <ul>
+                            <li><p>#0009</p></li>
+                            <li><p>This is the title of this ticket</p></li>
+                            <li><p>date of last update</p></li>
+                            <li><p>status</p></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li><p>#0010</p></li>
+                            <li><p>This is the title of this ticket</p></li>
+                            <li><p>date of last update</p></li>
+                            <li><p>status</p></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
