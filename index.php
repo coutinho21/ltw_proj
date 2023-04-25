@@ -1,7 +1,7 @@
 <?php 
     require_once('templates/common.php');
 
-    if (!isset($_SESSION['user'])) {     // if user is not logged in
+    if (isset($_SESSION['user'])) {     // if user is not logged in
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +33,10 @@
 <?php
     } else {                // if user is logged in, go to the main page
         outputHeader(); ?>
+        <nav class="add-and-search">
+            <h2>New ticket</h2>
+            <input type="search_ticket" name="search_ticket" placeholder="Search ticket">
+        </nav>
         <main class="main-content">
             <div class="departments">
                 <p>All tickets</p>
