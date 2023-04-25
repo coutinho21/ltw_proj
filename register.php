@@ -1,7 +1,7 @@
 <?php 
     require_once('templates/common.php');
 
-    if(!isset($_SESSION['user'])){
+    if (!isset($_SESSION['user'])) {
 ?>
 
 <!DOCTYPE html>
