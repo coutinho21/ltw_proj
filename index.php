@@ -1,7 +1,7 @@
 <?php 
     require_once('templates/common.php');
 
-    if (!isset($_SESSION['user'])) {     // if user is not logged in
+    if (!gisset($_SESSION['user'])) {     // if user is not logged in
 ?>
 
 <!DOCTYPE html>
