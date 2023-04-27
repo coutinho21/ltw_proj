@@ -1,7 +1,9 @@
 <?php 
     require_once('templates/common.php');
 
-    if (!isset($_SESSION['user'])) {     // if user is not logged in
+    session_start();
+
+    if (!isset($_SESSION['username'])) {     // if user is not logged in
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +21,7 @@
                 <h2>We're here to help!<br/>Submit your tickets today.</h2>
                 <img src="icons/ticket.png" alt="ticket">
             </div>
-            <form action="ticket.php" method="post">
+            <form action="actions/action_login.php" method="post">
                 <p>Welcome!</p>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>

@@ -1,12 +1,12 @@
 <?php
-    require_once('database/connection.php');
-    require_once('database/users.php');
-    require_once('templates/common.php');
+    require_once(__DIR__ . '/../database/users.php');
     
     session_start();
 
+    var_dump($_SESSION);
+
     if (isset($_SESSION['username'])){
-        header('Location: index.php');
+        header('Location: /../register.php');
         exit();
     }
 
@@ -17,22 +17,22 @@
     $confimPassword = $_POST['confirm_password'];
 
     if(strlen($password) < 8){
-        header('Location: register.php?error=5');
+        header('Location: /../register.php?error=5');
         exit();
     }
 
     if ($password != $confimPassword){
-        header('Location: register.php?error=1');
+        header('Location: /../register.php?error=1');
         exit();
     }
 
-    if(userExists($username, $password)){
-        header('Location: register.php?error=2');
+    if(userExists($email, $password)){
+        header('Location: /../register.php?error=2');
         exit();
     }
 
     addUser($name, $username, $email, $password);
     $_SESSION['username'] = $username;
     
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: /../register.php');
 ?>

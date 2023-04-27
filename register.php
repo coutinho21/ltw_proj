@@ -1,7 +1,9 @@
 <?php 
     require_once('templates/common.php');
 
-    if (!isset($_SESSION['user'])) {
+    session_start();
+
+    if (!isset($_SESSION['username'])) {
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +13,7 @@
         <meta charset="UTF-8">
         <meta name="css/viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/styles.css">
+        <script src="errors/errors.js" defer></script>
     </head>
     <body>
         <div class="main main-register">
@@ -19,7 +22,7 @@
                 <h2>We're here to help!<br/>Submit your tickets today.</h2>
                 <img src="icons/ticket.png" alt="">
             </div>
-            <form action="ticket.php" method="post">
+            <form action="actions/action_register.php" method="post">
                 <p>Sign up</p>
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="text" name="username" placeholder="Username" required>

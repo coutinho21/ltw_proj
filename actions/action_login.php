@@ -1,12 +1,13 @@
 <?php
     session_start();
-    require_once('database/users.php');
+    require_once(__DIR__ . '/../database/users.php');
 
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     
-    if (userExists($username, $password))
-        $_SESSION['username'] = $username;
+    $user = userExists($email, $password);
+    if($user)
+        $_SESSION['username'] = $user['username'];
 
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
