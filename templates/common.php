@@ -1,6 +1,5 @@
 <?php 
     function outputHeader(){
-        session_start();
 ?>
         <!DOCTYPE html>
         <html lang="en-US">
