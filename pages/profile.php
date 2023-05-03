@@ -1,5 +1,5 @@
 <?php
-    require_once('templates/common.php');
+    require_once(__DIR__ . '/../templates/common.php');
 
     session_start();
 
@@ -10,9 +10,9 @@
                 <h1>Welcome, <?=$_SESSION['username']?>!</h1>
                 <p>Click <a href="tickets.php">here</a> to see your tickets.</p>
             </div>
-            <a href="actions/action_logout.php">Logout</a>
+            <a href="../actions/action_logout.php">Logout</a>
         </main>
 <?php   outputFooter();
     } else
-        header('Location: index.php');
+        header('Location: ../index.php');
 ?>
