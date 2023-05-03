@@ -140,7 +140,7 @@ body > header ul > li:last-child {
     grid-template-columns: 1fr 4fr;
 }
 
-.departments {
+.filter {
     grid-column: 1 / 2;
 
     display: flex;
@@ -154,14 +154,14 @@ body > header ul > li:last-child {
     border-radius: 4px;
 }
 
-.departments > p {
+.filter > p {
     text-align: center;
     text-justify: start;
     margin: space-around;
     padding: 0;
 }
 
-.departments > ul {
+.filter > ul {
     display: flex;
     flex-direction: column;
 
@@ -172,7 +172,7 @@ body > header ul > li:last-child {
     padding: 0;
 }
 
-.departments > ul  > li {
+.filter > ul  > li {
     text-align: center;
     text-justify: start;
     margin: space-around;

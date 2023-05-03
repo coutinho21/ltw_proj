@@ -4,8 +4,12 @@
         <div class="tickets-list">
             <ul>
 <?php
-            foreach($tickets as $ticket){
-                outputTicket($ticket);
+            if(count($tickets) == 0)
+                outputNoTickets();
+            else{
+                foreach($tickets as $ticket){
+                    outputTicket($ticket);
+                }
             }
 ?>
             </ul>
@@ -25,5 +29,13 @@
         </li>   
 <?php
 
+    }
+
+    function outputNoTickets(){
+?>
+    <h2>
+        You have no tickets yet. <a href="new_ticket.php">Create one</a>.
+    </h2>
+<?php
     }
 ?>

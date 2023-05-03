@@ -1,6 +1,6 @@
 <?php
     require_once('connection.php');
-    function getTickets() {
+    function getAllTickets() {
         $db = getDatabaseConnection();
         $stmt = $db->prepare('SELECT * FROM tickets');
         $stmt->execute();
