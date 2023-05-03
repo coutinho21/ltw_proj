@@ -95,18 +95,3 @@ body {
 .main > form a {
     color: #4A4A4A;
 }
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    padding: 1vw;
-    align-items: center;
-}
-
-nav ul li {
-    width: fit-content;
-    block-size: fit-content;
-}
