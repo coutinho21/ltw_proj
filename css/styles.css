@@ -6,7 +6,8 @@
 
 body {
     background-color: #4A4A4A;
-    height: 100vh;
+    height: auto;
+    margin-top: 5em;
 }
 
 .main {
@@ -51,6 +52,8 @@ body {
     padding: 1em;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
+    align-self: end;
+    justify-self: start;
 }
 
 .main > form {
