@@ -1,6 +1,5 @@
 <?php 
     function outputHeader(){
-        session_start();
 ?>
         <!DOCTYPE html>
         <html lang="en-US">
@@ -9,8 +8,7 @@
             <title>Trouble Tickets</title>
             <meta charset="UTF-8">
             <meta name="css/viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="css/styles.css">
-            <link rel="stylesheet" href="css/homepage_client_style.css">
+            <link rel="stylesheet" href="../css/homepage_client_style.css">
         </head>
         <body>
             <header>
@@ -20,7 +18,7 @@
                         <li>
                             <div class="nav-right">
                                 <a href="faqs.php">FAQs</a>
-                                <a href="profile.php"><img class="profile" src="icons/user.png" alt="user"/></a>
+                                <a href="profile.php"><img class="profile" src="../icons/user.png" alt="user"/></a>
                             </div>
                         </li>
                     </ul>
