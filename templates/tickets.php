@@ -19,7 +19,7 @@
 
     function outputTicket($ticket){
 ?>  
-        <li>
+        <li class="ticket">
             <ul>
                 <li><p>#<?=$ticket['id']?></p></li>
                 <li><p><?=$ticket['title']?></p></li>
