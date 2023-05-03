@@ -6,7 +6,7 @@
     var_dump($_SESSION);
 
     if (isset($_SESSION['username'])){
-        header('Location: /../register.php');
+        header('Location: ../pages/register.php');
         exit();
     }
 
@@ -17,22 +17,22 @@
     $confimPassword = $_POST['confirm_password'];
 
     if(strlen($password) < 8){
-        header('Location: /../register.php?error=5');
+        header('Location: ../pages/register.php?error=5');
         exit();
     }
 
     if ($password != $confimPassword){
-        header('Location: /../register.php?error=1');
+        header('Location: ../pages/register.php?error=1');
         exit();
     }
 
     if(userExists($email, $password)){
-        header('Location: /../register.php?error=2');
+        header('Location: ../pages/register.php?error=2');
         exit();
     }
 
     addUser($name, $username, $email, $password);
     $_SESSION['username'] = $username;
     
-    header('Location: /../register.php');
+    header('Location: ../pages/register.php');
 ?>

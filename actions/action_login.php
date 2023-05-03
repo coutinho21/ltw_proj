@@ -1,6 +1,6 @@
 <?php
-    session_start();
     require_once(__DIR__ . '/../database/users.php');
+    session_start();
 
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -9,5 +9,5 @@
     if($user)
         $_SESSION['username'] = $user['username'];
 
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: ../index.php');
 ?>
