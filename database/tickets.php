@@ -20,4 +20,12 @@
         $stmt->execute(array($id));
         return $stmt->fetch();
     }
+
+    function getTicketHashtags($id){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM hashtags JOIN tickets_hashtags 
+        ON hashtags.id = tickets_hashtags.hashtag_id WHERE tickets_hashtags.ticket_id = ?');
+        $stmt->execute(array($id));
+        return $stmt->fetchAll();
+    }
 ?>

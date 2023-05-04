@@ -6,10 +6,10 @@
 
     session_start();
 
-    $ticket = getTicket($_GET['id']);
-    $ticketStatuses = getTicketStatuses($_GET['id']);
-    $ticketHashtags = getTicketHashtags($_GET['id']);
     outputHeader();
-    outputAddSearchFilter(outputTicketDiscussion($ticket, $ticketStatuses, $ticketHashtags));
+?>
+    
+
+<?php
     outputFooter();
 ?>

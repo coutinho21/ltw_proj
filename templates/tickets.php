@@ -41,32 +41,43 @@
 <?php
     }
 
-    function outputTicketDiscussion($ticket, $ticketStatuses){
+    function outputTicketDiscussion($ticket, $ticketStatuses, $ticketHashtags){
         ob_start();
 ?>
         <div class="ticket-discussion">
             <a href="index.php"><img class="return" src="../icons/return.png" alt="return"/></a>
             <div class="ticket">
                 <div class="ticket-header">
-                    <h1><?=$ticket['id']?></h1>
-                    <h1><?=$ticket['title']?></h1>
+                    <div class="ticket-id-title">
+                        <h1>#<?=$ticket['id']?> </h1>
+                        <h1> <?=$ticket['title']?></h1>
+                    </div>
                     <h1><?=$ticket['status']?></h1>
+                </div>
+                <div class="hashtags">
+                    <?php foreach($ticketHashtags as $hashtag)
+                        outputHashtag($hashtag);
+                    ?>
                 </div>
                 <div class="ticket-body">
                     <p><?=$ticket['introduction']?></p>
                     <p><?=$ticket['description']?></p>
                 </div>
                 <div class="ticket-footer">
-                    <h4>Status log:</h4>
-                    <ul>
-                        <?php foreach($ticketStatuses as $status){ ?>
-                            <li><?=$status['action']?>: <?=date('d-m-Y', $status['action_date'])?></li>
-                        <?php } ?>
-                    </ul>
+                    <h4>Created by: <?=$ticket['client']?></h4>
+                    <h4>Assigned to: <?=$ticket['agent']?></h4>
                 </div>
             </div>
         </div>
 <?php
         return ob_get_clean();
+    }
+
+    function outputHashtag($hashtag){
+?>
+        <div class="hashtag">
+            <p><?=$hashtag['name']?></p>
+        </div>
+<?php
     }
 ?>
