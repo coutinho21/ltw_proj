@@ -14,7 +14,7 @@
         return $stmt->fetch();
     }
 
-    function getTicketStatuses($id){
+    function getTicketHistory($id){
         $db = getDatabaseConnection();
         $stmt = $db->prepare('SELECT * FROM ticket_history WHERE ticket_id = ?');
         $stmt->execute(array($id));

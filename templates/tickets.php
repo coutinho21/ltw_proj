@@ -41,7 +41,7 @@
 <?php
     }
 
-    function outputTicketDiscussion($ticket, $ticketStatuses, $ticketHashtags){
+    function outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags){
         ob_start();
 ?>
         <div class="ticket-discussion">
@@ -49,8 +49,8 @@
             <div class="ticket">
                 <div class="ticket-header">
                     <div class="ticket-id-title">
-                        <h1>#<?=$ticket['id']?> </h1>
-                        <h1> <?=$ticket['title']?></h1>
+                        <h1>#<?=$ticket['id']?></h1>
+                        <h1><?=$ticket['title']?></h1>
                     </div>
                     <h1><?=$ticket['status']?></h1>
                 </div>

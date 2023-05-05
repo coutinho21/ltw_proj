@@ -7,9 +7,9 @@
     session_start();
 
     $ticket = getTicket($_GET['id']);
-    $ticketStatuses = getTicketStatuses($_GET['id']);
+    $ticketHistory = getTicketHistory($_GET['id']);
     $ticketHashtags = getTicketHashtags($_GET['id']);
     outputHeader();
-    outputAddSearchFilter(outputTicketDiscussion($ticket, $ticketStatuses, $ticketHashtags));
+    outputAddSearchFilter(outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags));
     outputFooter();
 ?>
