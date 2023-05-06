@@ -37,3 +37,19 @@
     justify-content: space-between;
     min-width: 550px;
 }
+
+.ticket-reply-form {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    border: 1px solid #000;
+    margin: 2em;
+    padding: 1em;
+}
+
+.ticket-reply-form textarea {
+    resize: none;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}

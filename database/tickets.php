@@ -28,4 +28,17 @@
         $stmt->execute(array($id));
         return $stmt->fetchAll();
     }
+
+    function getTicketReplies($id){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM ticket_replies WHERE ticket_id = ?');
+        $stmt->execute(array($id));
+        return $stmt->fetchAll();
+    }
+
+    function addTicketReply($ticket_id, $username, $reply){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('INSERT INTO ticket_replies (ticket_id, user, reply, reply_date) VALUES (?, ?, ?, ?)');
+        $stmt->execute(array($ticket_id, $username, $reply, time()));
+    }
 ?>

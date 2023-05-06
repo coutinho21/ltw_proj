@@ -6,10 +6,15 @@
 
     session_start();
 
+    if(!isset($_SESSION['username']))
+        header('Location: index.php');
+    
+
     $ticket = getTicket($_GET['id']);
     $ticketHistory = getTicketHistory($_GET['id']);
     $ticketHashtags = getTicketHashtags($_GET['id']);
+    $ticketReplies = getTicketReplies($_GET['id']);
     outputHeader();
-    outputAddSearchFilter(outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags));
+    outputAddSearchFilter(outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies));
     outputFooter();
 ?>

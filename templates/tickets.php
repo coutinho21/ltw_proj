@@ -41,7 +41,7 @@
 <?php
     }
 
-    function outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags){
+    function outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies){
         ob_start();
 ?>
         <div class="ticket-discussion">
@@ -68,6 +68,17 @@
                     <h4>Assigned to: <?=$ticket['agent']?></h4>
                 </div>
             </div>
+            <div class="ticket-replies">
+                <?php foreach($ticketReplies as $reply)
+                    outputTicketReply($reply);
+                ?>
+                <form action="../actions/action_ticket_reply.php" method="post" class="ticket-reply-form">
+                    <input type="hidden" name="ticket_id" value="<?=$ticket['id']?>"/>
+                    <input type="hidden" name="user" value="<?=$_SESSION['username']?>"/>
+                    <textarea name="reply" placeholder="Reply to this ticket..."></textarea>
+                    <input class="ticket-reply-post" type="submit" value="Reply"/>
+                </form>
+            </div>
         </div>
 <?php
         return ob_get_clean();
@@ -77,6 +88,20 @@
 ?>
         <div class="hashtag">
             <p><?=$hashtag['name']?></p>
+        </div>
+<?php
+    }
+
+    function outputTicketReply($reply){
+?>
+        <div class="ticket-reply">
+            <div class="ticket-reply-header">
+                <h4><?=$reply['user']?></h4>
+                <h4><?=date('d-m-Y', $reply['reply_date'])?></h4>
+            </div>
+            <div class="ticket-reply-body">
+                <p><?=$reply['reply']?></p>
+            </div>
         </div>
 <?php
     }

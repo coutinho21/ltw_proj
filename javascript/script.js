@@ -1,4 +1,4 @@
-function openTicket(){
+function openTicket() {
     const tickets = document.querySelectorAll('.ticket');
 
     tickets.forEach(ticket => {
@@ -8,13 +8,14 @@ function openTicket(){
     });
 }
 
-function addHashtag(){
-    document.addEventListener('keydown', function(event) {
+// To add a new hashtah, the agent/admin must press the # key
+function addHashtag() {
+    document.addEventListener('keydown', function (event) {
         const location = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
         if (event.key === '#' && location === 'ticket.php?id=' + document.querySelector('.ticket-id-title h1:first-child').textContent.substring(1)) {
-          alert('You pressed the # key'); // add the hashtag
+            alert('You pressed the # key'); // add the hashtag
         }
-      });
+    });
 }
 
 openTicket();
