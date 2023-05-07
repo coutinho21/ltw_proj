@@ -32,17 +32,18 @@
     <main class="edit-profile">
         <h1>Edit profile</h1>
         <form class="edit-profile-form" method="post" action="../actions/action_edit_profile.php">
+            <input type="hidden" name="user" value="<?=$user['username']?>"></input>
             <label>name<br/>
-                <input value="<?=$user['name']?>"></input> <br/><br/>
+                <input name="new_name" value="<?=$user['name']?>"></input> <br/><br/>
             </label>
             <label>username<br/>
-                <input value="<?=$user['username']?>"></input> <br/><br/>
+                <input name="new_username" value="<?=$user['username']?>"></input> <br/><br/>
             </label>
             <label>email<br/>
-                <input value="<?=$user['email']?>"></input> <br/><br/>
+                <input name="new_email" value="<?=$user['email']?>"></input> <br/><br/>
             </label> 
             <div class="cancel-done">
-                <button onclick="window.location.href='profile.php'">Cancel</button>
+                <button type="button" onclick="window.location.href='profile.php'">Cancel</button>
                 <button type="submit">Done</button>
             </div>
         </form>
