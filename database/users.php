@@ -18,6 +18,13 @@
         return $stmt->fetch();
     }
 
+    function getUserByEmail($email){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM users WHERE email = ?');
+        $stmt->execute(array($email));
+        return $stmt->fetch();
+    }
+
     function addUser($name, $username, $email, $password){
         $options = ['cost' => 10];
         $db = getDatabaseConnection();
