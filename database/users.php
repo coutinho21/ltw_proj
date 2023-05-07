@@ -31,4 +31,10 @@
         $stmt->execute(array($username));
         return $stmt->fetchAll();
     }
+
+    function updateUser($username, $newUsername, $newName, $newEmail){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('UPDATE users SET username = ?, name = ?, email = ? WHERE username = ?');
+        $stmt->execute(array($newUsername, $newName, $newEmail, $username));
+    }
 ?>
