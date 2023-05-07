@@ -22,3 +22,25 @@ function wrongPassword(){
 function weakPassword(){
     alert('Password is too weak!');
 }
+
+const urlParams = new URLSearchParams(window.location.search);
+const error = urlParams.get('error');
+switch(error){
+    case '1':
+        passwordDifferentFromConfirmPassword();
+        break;
+    case '2':
+        userAlreadyExists();
+        break;
+    case '3':
+        userDoesNotExist();
+        break;
+    case '4':
+        wrongPassword();
+        break;
+    case '5':
+        weakPassword();
+        break;
+    default:
+        break;
+}

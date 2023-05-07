@@ -12,6 +12,7 @@
             <link rel="stylesheet" href="../css/ticket.css">
             <link rel="stylesheet" href="../css/profile.css">
             <script src="../javascript/script.js" defer></script>
+            <script src="../errors/errors.js" defer></script>
         </head>
         <body>
             <header>
