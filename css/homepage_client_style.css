@@ -234,6 +234,9 @@ body > footer {
     justify-content: center;
     align-items: center;
     margin-top: 1em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 /* End of footer */
