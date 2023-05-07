@@ -10,6 +10,7 @@
             <meta name="css/viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="../css/homepage_client_style.css">
             <link rel="stylesheet" href="../css/ticket.css">
+            <link rel="stylesheet" href="../css/profile.css">
             <script src="../javascript/script.js" defer></script>
         </head>
         <body>

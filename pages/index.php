@@ -4,6 +4,7 @@
     require_once(__DIR__ . '/../templates/common.php');
     require_once(__DIR__ . '/../templates/tickets.php');
     require_once(__DIR__ . '/../templates/no_user.php');
+    
     session_start();
 
     if (!isset($_SESSION['username']))     // if user is not logged in
