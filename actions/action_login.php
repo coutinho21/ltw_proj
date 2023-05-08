@@ -10,7 +10,7 @@
         exit();
     }
     
-    $user = userExists($email, $password);
+    $user = loginUser($email, $password);
     if(!$user){
         header('Location: ../pages/index.php?error=4');
         exit();

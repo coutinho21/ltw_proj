@@ -1,7 +1,7 @@
 <?php
     require_once('connection.php');
 
-    function userExists($email, $password){
+    function loginUser($email, $password){
         $db = getDatabaseConnection();
         $stmt = $db->prepare('SELECT * FROM users WHERE email = ?');
         $stmt->execute(array($email));

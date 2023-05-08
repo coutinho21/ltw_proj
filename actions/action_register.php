@@ -16,6 +16,12 @@
     $password = $_POST['password'];
     $confimPassword = $_POST['confirm_password'];
 
+    
+    if(getUserByEmail($email)){
+        header('Location: ../pages/register.php?error=2');
+        exit();
+    }
+
     if(strlen($password) < 8){
         header('Location: ../pages/register.php?error=5');
         exit();
@@ -23,11 +29,6 @@
 
     if ($password != $confimPassword){
         header('Location: ../pages/register.php?error=1');
-        exit();
-    }
-
-    if(userExists($email, $password)){
-        header('Location: ../pages/register.php?error=2');
         exit();
     }
 
