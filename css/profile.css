@@ -1,0 +1,61 @@
+.profile-info, 
+.edit-profile,
+.change-password {
+    margin: auto;
+    width: 300px;
+    height: 500px;
+    display: flex; 
+    flex-direction: column; 
+    border-radius: 10px;
+    border: 1px solid #000;
+    background-color: #fff;
+    padding: 2em;
+    justify-content: space-between;
+}
+
+.header-edit-profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-info p {
+    margin: 0.5em 0;
+    font-weight: 600;
+}
+
+.edit-profile-form ,
+.change-password-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 2em 0;
+}
+
+.edit-profile-form input,
+.change-password input {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #000;
+    margin: 0.5em 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cancel-done {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.change-pass-logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.change-pass-logout a {
+    color: #000;
+}

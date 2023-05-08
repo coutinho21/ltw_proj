@@ -9,7 +9,6 @@ body {
     margin: 0;
     padding: 0;
     min-width: 100vw;
-    min-height: -webkit-fill-available;
     min-height: 100vh;
 }
 
@@ -234,6 +233,9 @@ body > footer {
     justify-content: center;
     align-items: center;
     margin-top: 1em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 /* End of footer */
