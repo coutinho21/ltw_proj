@@ -44,4 +44,11 @@
         $stmt = $db->prepare('UPDATE users SET username = ?, name = ?, email = ? WHERE username = ?');
         $stmt->execute(array($newUsername, $newName, $newEmail, $username));
     }
+
+    function changeUserPassword($email, $newPassword){
+        $options = ['cost' => 10];
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('UPDATE users SET password = ? WHERE email = ?');
+        $stmt->execute(array(password_hash($newPassword, PASSWORD_BCRYPT, $options), $email));
+    }
 ?>

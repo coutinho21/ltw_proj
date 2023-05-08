@@ -1,4 +1,6 @@
-.profile-info, .edit-profile{
+.profile-info, 
+.edit-profile,
+.change-password {
     margin: auto;
     width: 300px;
     height: 500px;
@@ -23,7 +25,8 @@
     font-weight: 600;
 }
 
-.edit-profile-form {
+.edit-profile-form ,
+.change-password-form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -31,7 +34,8 @@
     margin: 2em 0;
 }
 
-.edit-profile-form input {
+.edit-profile-form input,
+.change-password input {
     padding: 0.5em;
     border-radius: 5px;
     border: 1px solid #000;
@@ -40,8 +44,18 @@
     box-sizing: border-box;
 }
 
-.edit-profile-form .cancel-done {
+.cancel-done {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.change-pass-logout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.change-pass-logout a {
+    color: #000;
 }
