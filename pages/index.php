@@ -8,12 +8,13 @@
 
     if (!isset($_SESSION['username']))     // if user is not logged in
         outputLogin();
-    else {                // if user is logged in, go to the main page
+    else {                                 // if user is logged in, go to the main page
         $user = getUser($_SESSION['username']);
-        if($user['role'] == 'client')
+        if ($user['role'] == 'client')
             $tickets = getUserTickets($_SESSION['username']);
         else 
             $tickets = getAllTickets();
+
         outputHeader(); ?>
         <nav class="add-and-search">
             <h2>New ticket</h2>
