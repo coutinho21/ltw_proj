@@ -6,4 +6,39 @@
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    function getTicket($id) {
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM tickets WHERE id = ?');
+        $stmt->execute(array($id));
+        return $stmt->fetch();
+    }
+
+    function getTicketHistory($id){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM ticket_history WHERE ticket_id = ?');
+        $stmt->execute(array($id));
+        return $stmt->fetch();
+    }
+
+    function getTicketHashtags($id){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM hashtags JOIN tickets_hashtags 
+        ON hashtags.id = tickets_hashtags.hashtag_id WHERE tickets_hashtags.ticket_id = ?');
+        $stmt->execute(array($id));
+        return $stmt->fetchAll();
+    }
+
+    function getTicketReplies($id){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM ticket_replies WHERE ticket_id = ?');
+        $stmt->execute(array($id));
+        return $stmt->fetchAll();
+    }
+
+    function addTicketReply($ticket_id, $username, $reply){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('INSERT INTO ticket_replies (ticket_id, user, reply, reply_date) VALUES (?, ?, ?, ?)');
+        $stmt->execute(array($ticket_id, $username, $reply, time()));
+    }
 ?>

@@ -10,6 +10,6 @@
 
     $user = getUser($_SESSION['username']);
     outputHeader(); 
-    outputProfile($user);
+    outputEditProfile($user);
     outputFooter();
 ?>

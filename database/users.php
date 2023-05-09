@@ -1,7 +1,7 @@
 <?php
     require_once('connection.php');
 
-    function userExists($email, $password){
+    function loginUser($email, $password){
         $db = getDatabaseConnection();
         $stmt = $db->prepare('SELECT * FROM users WHERE email = ?');
         $stmt->execute(array($email));
@@ -18,6 +18,13 @@
         return $stmt->fetch();
     }
 
+    function getUserByEmail($email){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM users WHERE email = ?');
+        $stmt->execute(array($email));
+        return $stmt->fetch();
+    }
+
     function addUser($name, $username, $email, $password){
         $options = ['cost' => 10];
         $db = getDatabaseConnection();
@@ -30,5 +37,18 @@
         $stmt = $db->prepare('SELECT * FROM tickets WHERE client = ?');
         $stmt->execute(array($username));
         return $stmt->fetchAll();
+    }
+
+    function updateUser($username, $newUsername, $newName, $newEmail){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('UPDATE users SET username = ?, name = ?, email = ? WHERE username = ?');
+        $stmt->execute(array($newUsername, $newName, $newEmail, $username));
+    }
+
+    function changeUserPassword($email, $newPassword){
+        $options = ['cost' => 10];
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('UPDATE users SET password = ? WHERE email = ?');
+        $stmt->execute(array(password_hash($newPassword, PASSWORD_BCRYPT, $options), $email));
     }
 ?>

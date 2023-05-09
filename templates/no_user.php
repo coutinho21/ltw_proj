@@ -8,6 +8,7 @@ function outputLogin(){
             <meta charset="UTF-8">
             <meta name="css/viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="../css/login_register.css">
+            <script src="../errors/errors.js" defer></script>
         </head>
         <body>
             <div class="main">
