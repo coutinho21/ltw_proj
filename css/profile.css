@@ -2,6 +2,8 @@
 .edit-profile,
 .change-password {
     margin: auto;
+    margin-top: 1.15em;
+    margin-bottom: .85em;
     width: 300px;
     height: 500px;
     display: flex; 

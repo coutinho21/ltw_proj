@@ -109,6 +109,11 @@ body > header ul > li:last-child {
     border-radius: 4px; 
 }
 
+.add-and-search > h2 > a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
 .add-and-search > h2:hover {
     background-color: #b7b7b7;
 }
