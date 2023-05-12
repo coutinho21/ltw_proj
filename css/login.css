@@ -101,9 +101,11 @@ body {
 }
 
 
-@media (max-width: 65em) {
+/* responsive design */
+
+@media (max-width: 70em) {
     body {
-        margin: 2em 0; 
+        margin: 2em 0 0; 
     }
     .main {
         display: block;
@@ -112,41 +114,8 @@ body {
         width: auto;
     }   
     .main > .main-text {
-        padding-bottom: 3em;
-        margin: 0 1em;
-    }
-    .main > .main-text > a {
-        font-size: 3.5em;
-        font-weight: 700;
-    }
-    .main h2 {
-        font-size: 2em;
-    }
-    .main > .main-text > img {
-        width: 7em;
-    }
-    .main > form > input {
-        height: 3vw;
-        margin: 1em;
-    }
-    .main > form > button {
-        height: 3.5vw;
-    } 
-}
-
-@media (max-width: 35em) {
-    body {
-        margin: 2em 3em 0 1em;
-    }
-    .main {
-        display: block;
-        color: #fff;
-        margin: 0 .5em;
-    }   
-    .main > .main-text {
-        padding-top: 2em;
-        padding-bottom: 6em;
-        margin: 0 1em;
+        padding-bottom: 1.5em;
+        margin: 0 1em 4em;
     }
     .main > .main-text > a {
         font-size: 3em;
@@ -156,14 +125,57 @@ body {
         font-size: 1.5em;
     }
     .main > .main-text > img {
-        /* display: none; */
-        width: 5em;
+        width: 7em;
+    }
+    .main > form {
+        margin: 2em 0;
     }
     .main > form > input {
+        height: 3.5vw;
+        margin: .8em;
+    }
+    .main > form > button {
         height: 4vw;
+    } 
+}
+
+/* 
+@media (max-width: 35em) {
+    body {
+        margin: 2em 3em 0 0;
+    }
+    .main {
+        display: block;
+        color: #fff;
+        margin: auto;
+    }   
+    .main > .main-text {
+        padding-top: 2em;
+        padding-bottom: 3em;
+        margin: 0;
+        width: 100%;
+    }
+    .main > .main-text > a {
+        font-size: 3em;
+        font-weight: 700;
+    }
+    .main h2 {
+        font-size: 1.5em;
+    }
+    .main > .main-text > img {
+        width: 7em;
+    }
+    .main > form {
+        margin: 2em 0 2em 2em;
+        width: 90%;
+    }
+    .main > form > input {
+        height: 3.5vw;
         margin: 1em;
     }
     .main > form > button {
-        height: 5vw;
+        height: 4vw;
     }
 }
+
+ */
