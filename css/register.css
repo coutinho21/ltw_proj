@@ -133,7 +133,7 @@ nav ul li {
     }   
     .main > .main-text {
         padding: 0;
-        margin: 2.5em 1em 5em;
+        margin: 2.5em 1em 4em;
     }
     .main > .main-text > a {
         font-size: 3em;
@@ -155,7 +155,7 @@ nav ul li {
     }
     .main > form > input {
         height: 3vw;
-        margin: .8em;
+        margin: .6em;
     }
     .main > form > button {
         height: 3.5vw;

@@ -131,11 +131,11 @@ body {
         margin: 2em 0;
     }
     .main > form > input {
-        height: 3.5vw;
-        margin: .8em;
+        height: 3vw;
+        margin: .6em;
     }
     .main > form > button {
-        height: 4vw;
+        height: 3.5vw;
     } 
 }
 
