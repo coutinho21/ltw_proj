@@ -42,4 +42,18 @@
         $stmt = $db->prepare('INSERT INTO ticket_replies (ticket_id, user, reply, reply_date) VALUES (?, ?, ?, ?)');
         $stmt->execute(array($ticket_id, $username, $reply, time()));
     }
+
+    function getDepartments(){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM departments');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function newTicket($user, $department, $title, $introduction, $description){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('INSERT INTO tickets (client, department, title, introduction, description, date, status) VALUES (?, ?, ?, ?, ?, ?, ?)');
+        $stmt->execute(array($user, $department, $title, $introduction, $description, time(), 'open'));
+        return $db->lastInsertId();
+    }
 ?>

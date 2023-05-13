@@ -6,10 +6,9 @@
 
     session_start();
 
-    outputHeader();
-?>
-    
+    $departments = getDepartments();
 
-<?php
+    outputHeader();
+    outputAddSearchFilter(outputNewTicket($departments));
     outputFooter();
 ?>

@@ -74,9 +74,8 @@
                 ?>
                 <form action="../actions/action_ticket_reply.php" method="post" class="ticket-reply-form">
                     <input type="hidden" name="ticket_id" value="<?=$ticket['id']?>"/>
-                    <input type="hidden" name="user" value="<?=$_SESSION['username']?>"/>
                     <textarea name="reply" placeholder="Reply to this ticket..."></textarea>
-                    <input class="ticket-reply-post" type="submit" value="Reply"/>
+                    <button class="ticket-reply-post" type="submit">Reply</button>
                 </form>
             </div>
         </div>
@@ -104,5 +103,30 @@
             </div>
         </div>
 <?php
+    }
+
+    function outputNewTicket($departments){
+        ob_start();
+?>
+        <div class="new-ticket">
+            <h2>New ticket</h2>
+            <form action="../actions/action_new_ticket.php" method="post">
+                <input type="text" name="title" placeholder="Title" required/>
+                <select name="department">
+<?php
+                    foreach($departments as $department){
+?>
+                        <option value="<?=$department['id']?>"><?=$department['name']?></option>
+<?php
+                    }
+?>
+                </select>
+                <textarea name="introduction" placeholder="Introduction" required></textarea>
+                <textarea name="description" placeholder="Description" required></textarea>
+                <button type="submit">Create</button>
+            </form>
+        </div>
+<?php
+        return ob_get_clean();
     }
 ?>
