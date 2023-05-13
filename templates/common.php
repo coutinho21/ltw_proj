@@ -42,7 +42,7 @@
     function outputAddSearchFilter($content){
 ?>
         <nav class="add-and-search">
-            <h2><a href="../pages/new_ticket.php">New ticket</a></h2>
+            <a href="../pages/new_ticket.php">New ticket</a>
             <input type="search_ticket" name="search_ticket" placeholder="Search ticket">
         </nav>
         <main class="main-content">
