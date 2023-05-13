@@ -5,12 +5,12 @@
     session_start();
 
     if(!isset($_SESSION['username'])){
-        header('Location: index.php');
+        header('Location: ../pages/index.php');
         exit();
     }
 
     $ticket_id = $_POST['ticket_id'];
-    $username = $_POST['user'];
+    $username = $_SESSION['username'];
     $reply = $_POST['reply'];
 
     $user = getUser($username);
