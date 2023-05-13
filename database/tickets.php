@@ -56,4 +56,11 @@
         $stmt->execute(array($user, $department, $title, $introduction, $description, time(), 'open'));
         return $db->lastInsertId();
     }
+
+    function searchTickets($search){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM tickets WHERE title LIKE ?');
+        $stmt->execute(array('%' . $search . '%'));
+        return $stmt->fetchAll();
+    }
 ?>
