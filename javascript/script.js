@@ -52,7 +52,7 @@ function searchTickets() {
                 // ticket date
                 const ticketElementListDate = document.createElement('li');
                 const ticketDate = document.createElement('p');
-                ticketDate.textContent = ticket.date; //TODO format date
+                ticketDate.textContent = ticket.date;
                 ticketElementListDate.appendChild(ticketDate);
 
                 // ticket status
