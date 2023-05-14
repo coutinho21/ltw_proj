@@ -37,13 +37,14 @@
             </footer>
         </body>
         </html>
-<?php } 
+<?php 
+    } 
 
     function outputAddSearchFilter($content){
 ?>
         <nav class="add-and-search">
             <a href="../pages/new_ticket.php">New ticket</a>
-            <input type="search_ticket" name="search_ticket" placeholder="Search ticket">
+            <input name="search_ticket" placeholder="Search ticket" class="search-ticket"/>
         </nav>
         <main class="main-content">
             <div class="filter">
