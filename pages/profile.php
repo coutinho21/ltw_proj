@@ -8,8 +8,22 @@
     if(!isset($_SESSION['username']))
         header('Location: index.php');
 
-    $user = getUser($_SESSION['username']);
+
     outputHeader(); 
-    outputProfile($user);
+
+    $username = $_SESSION['username'];
+    if(isset($_GET['username'])){
+        $username = $_GET['username'];
+    }
+
+    if ($username == $_SESSION['username']) {
+        $user = getUser($username);
+        outputProfile($user);
+    }
+    else {
+        $user = getUser($username);
+        outputUserProfile($user);
+    }
+    
     outputFooter();
 ?>

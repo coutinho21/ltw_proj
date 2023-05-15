@@ -64,8 +64,8 @@
                     <p><?=$ticket['description']?></p>
                 </div>
                 <div class="ticket-footer">
-                    <h4>Created by: <?=$ticket['client']?></h4>
-                    <h4>Assigned to: <?=$ticket['agent']?></h4>
+                    <h4>Created by: <a href="../pages/profile.php?username=<?=$ticket['client']?>"><?=$ticket['client']?></a></h4>
+                    <h4>Assigned to: <a href="../pages/profile.php?username=<?=$ticket['agent']?>"><?=$ticket['agent']?></a></h4>
                 </div>
             </div>
             <div class="ticket-replies">
@@ -95,7 +95,7 @@
 ?>
         <div class="ticket-reply">
             <div class="ticket-reply-header">
-                <h4><?=$reply['user']?></h4>
+                <h4><a href="../pages/profile.php?username=<?=$reply['user']?>"><?=$reply['user']?></a></h4>
                 <h4><?=date('d-m-Y', $reply['reply_date'])?></h4>
             </div>
             <div class="ticket-reply-body">

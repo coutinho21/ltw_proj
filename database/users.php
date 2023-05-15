@@ -11,10 +11,10 @@
         return false;
     }
 
-    function getUser(){
+    function getUser($username){
         $db = getDatabaseConnection();
         $stmt = $db->prepare('SELECT * FROM users WHERE username = ?');
-        $stmt->execute(array($_SESSION['username']));
+        $stmt->execute(array($username));
         return $stmt->fetch();
     }
 

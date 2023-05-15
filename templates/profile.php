@@ -30,6 +30,32 @@
 <?php
     }
 
+    function outputUserProfile($user){
+?>
+        <main class="profile-info">
+            <div class="header-edit-profile">
+                <h1>Profile</h1>
+            </div>
+            <div>
+                <label>name</label>
+                <p><?=$user['name']?></p>
+            </div>
+            <div>
+                <label>username</label>
+                <p><?=$user['username']?></p>
+            </div>
+            <div>
+                <label>email</label>
+                <p><?=$user['email']?></p>
+            </div>
+            <div>
+                <label>role</label>
+                <p><?=$user['role']?></p>
+            </div>
+        </main>
+<?php
+    }
+
     function outputEditProfile($user){
 ?>
     <main class="edit-profile">
