@@ -159,13 +159,6 @@ body > header ul > li:last-child {
     border-radius: 4px;
 }
 
-.filter > p {
-    text-align: center;
-    text-justify: start;
-    margin: space-around;
-    padding: 0;
-}
-
 .departments {
     display: flex;
     flex-direction: column;
@@ -181,6 +174,10 @@ body > header ul > li:last-child {
     text-justify: start;
     margin: space-around;
     list-style-type: none;
+}
+
+.departments > .active{
+    background-color: #4A4A4A;
 }
 
 .tickets-list {

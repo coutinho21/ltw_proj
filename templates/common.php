@@ -48,7 +48,6 @@
         </nav>
         <main class="main-content">
             <div class="filter">
-                <p>All tickets</p>
                 <ul class="departments">
                     <?php foreach($departments as $department){ ?>
                         <li><p><?=$department['name']?></p></li>

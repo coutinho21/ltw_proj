@@ -63,4 +63,14 @@
         $stmt->execute(array('%' . $search . '%'));
         return $stmt->fetchAll();
     }
+
+    function getTicketsByDepartment($department){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT tickets.* FROM tickets 
+                              JOIN departments 
+                              ON tickets.department = departments.id
+                              WHERE departments.name = ?');
+        $stmt->execute(array($department));
+        return $stmt->fetchAll();
+    }
 ?>
