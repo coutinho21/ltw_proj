@@ -11,6 +11,7 @@
 
     $search = cleanInput($_GET['search']);
     $tickets = searchTickets($search);
+    
     // re-format date before going to json
     $tickets = array_map(function($ticket){
         $ticket['date'] = date('d-m-Y', $ticket['date']);

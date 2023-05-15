@@ -40,7 +40,7 @@
 <?php 
     } 
 
-    function outputAddSearchFilter($content){
+    function outputAddSearchFilter($content, $departments){
 ?>
         <nav class="add-and-search">
             <a href="../pages/new_ticket.php">New ticket</a>
@@ -48,12 +48,10 @@
         </nav>
         <main class="main-content">
             <div class="filter">
-                <p>All tickets</p>
-                <ul>
-                    <li><p>Department 1</p></li>
-                    <li><p>Department 2</p></li>
-                    <li><p>Department 3</p></li>
-                    <li><p>Department 4</p></li>
+                <ul class="departments">
+                    <?php foreach($departments as $department){ ?>
+                        <li><p><?=$department['name']?></p></li>
+                    <?php } ?>
                 </ul>
             </div>
             <?=$content?>
