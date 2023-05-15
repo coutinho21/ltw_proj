@@ -151,6 +151,10 @@ body > header ul > li:last-child {
     mix-blend-mode: color-burn;
 }
 
+#filters {
+    display: none;
+    position: absolute;
+}
 /* End of add new ticket and search bar */
 /* Start of main content */
 

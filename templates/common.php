@@ -13,6 +13,7 @@
             <link rel="stylesheet" href="../css/ticket.css">
             <link rel="stylesheet" href="../css/profile.css">
             <script src="../javascript/script.js" defer></script>
+            <script src="../javascript/filters.js" defer></script>
             <script src="../errors/errors.js" defer></script>
         </head>
         <body>
@@ -47,7 +48,16 @@
             <a href="../pages/new_ticket.php">New ticket</a>
             <input name="search_ticket" placeholder="Search ticket" class="search-ticket"/>
             <?php if($role != 'client') { ?>
-                <button type="button" class="filters-button"><img src="../icons/filter.png" alt="filter"/></button>
+                <button type="button" class="filters-button" onclick="openFilters()"><img src="../icons/filter.png" alt="filter"/></button>
+                <div id="filters">
+                    <h4>Filter by:</h4>
+                    <ul>
+                        <li>Date</li>
+                        <li>Assigned agent</li>
+                        <li>Status</li>
+                        <li>Hashtag</li>
+                    </ul>
+                </div>
             <?php }?>
         </nav>
         <main class="main-content">
