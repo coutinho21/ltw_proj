@@ -19,7 +19,7 @@
         $departments = getDepartments();
             
         outputHeader(); 
-        outputAddSearchFilter(outputTickets($tickets), $departments);
+        outputAddSearchFilter(outputTickets($tickets), $departments, $user['role']);
         outputFooter();
     }
 ?>

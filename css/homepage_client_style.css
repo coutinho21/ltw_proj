@@ -94,10 +94,11 @@ body > header ul > li:last-child {
 .add-and-search {
     display: flex;
     flex-direction: row;
-    margin: 0;
+    margin: 0 2em;
     margin-top: .5em;
     padding: .2em;
     align-items: center;
+    justify-content: space-between;
 }
 
 .add-and-search > a {          /* New ticket*/
@@ -138,6 +139,18 @@ body > header ul > li:last-child {
     text-align: start;
 }
 
+.filters-button {
+    border: none;
+    background: none;
+}
+
+.filters-button > img {
+    width: 40px;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    mix-blend-mode: color-burn;
+}
+
 /* End of add new ticket and search bar */
 /* Start of main content */
 
@@ -146,7 +159,7 @@ body > header ul > li:last-child {
     grid-template-columns: 1fr 4fr;
 }
 
-.filter {
+.departments {
     grid-column: 1 / 2;
     display: flex;
     flex-direction: column;
@@ -157,16 +170,6 @@ body > header ul > li:last-child {
     margin: .55em;
     padding: .5em;
     border-radius: 4px;
-}
-
-.departments {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    text-justify: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
 }
 
 .departments > li {

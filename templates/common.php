@@ -41,20 +41,21 @@
 <?php 
     } 
 
-    function outputAddSearchFilter($content, $departments){
+    function outputAddSearchFilter($content, $departments, $role){
 ?>
         <nav class="add-and-search">
             <a href="../pages/new_ticket.php">New ticket</a>
             <input name="search_ticket" placeholder="Search ticket" class="search-ticket"/>
+            <?php if($role != 'client') { ?>
+                <button type="button" class="filters-button"><img src="../icons/filter.png" alt="filter"/></button>
+            <?php }?>
         </nav>
         <main class="main-content">
-            <div class="filter">
-                <ul class="departments">
-                    <?php foreach($departments as $department){ ?>
-                        <li><p><?=$department['name']?></p></li>
-                    <?php } ?>
-                </ul>
-            </div>
+            <ul class="departments">
+                <?php foreach($departments as $department){ ?>
+                    <li><p><?=$department['name']?></p></li>
+                <?php } ?>
+            </ul>
             <?=$content?>
         </main>
 <?php
