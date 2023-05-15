@@ -8,6 +8,7 @@
             <title>Trouble Tickets</title>
             <meta charset="UTF-8">
             <meta name="css/viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" href="../icons/ticket.png" type="image/png" sizes="16x16">
             <link rel="stylesheet" href="../css/homepage_client_style.css">
             <link rel="stylesheet" href="../css/ticket.css">
             <link rel="stylesheet" href="../css/profile.css">
