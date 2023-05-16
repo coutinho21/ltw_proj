@@ -2,7 +2,7 @@
 .edit-profile,
 .change-password {
     margin: auto;
-    margin-top: 1.15em;
+    /*margin-top: 1.15em;*/
     margin-bottom: .85em;
     width: 300px;
     height: 500px;
@@ -13,6 +13,14 @@
     background-color: #fff;
     padding: 2em;
     justify-content: space-between;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
 }
 
 .header-edit-profile {
@@ -22,9 +30,34 @@
     align-items: center;
 }
 
+.cancel-done button,
+.header-edit-profile button{
+    background-color: #D9D9D9;
+    border-radius: 7px;
+    color: black;
+    width: 100px;
+    height: 32px;
+    border: none;
+    outline: none;
+}
+
+.cancel-done button:hover,
+.header-edit-profile button:hover{
+    background-color: #C7C7C7;
+}
+
+.change-password,
+.edit-profile,
+.profile-info label{
+    font-weight: 300;
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+
 .profile-info p {
     margin: 0.5em 0;
-    font-weight: 600;
+    font-weight: 500;
+    margin-top: 0px;
 }
 
 .edit-profile-form ,
@@ -39,11 +72,19 @@
 .edit-profile-form input,
 .change-password input {
     padding: 0.5em;
-    border-radius: 5px;
-    border: 1px solid #000;
+    border-bottom: 1px solid #000;
     margin: 0.5em 0;
     width: 100%;
     box-sizing: border-box;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.change-password input:hover,
+.edit-profile-form input:hover {
+    border: 1px solid #000;
+    border-radius: 5px;
 }
 
 .cancel-done {
@@ -60,4 +101,8 @@
 
 .change-pass-logout a {
     color: #000;
+}
+
+.change-pass-logout a:hover{
+    color:#4A4A4A
 }
