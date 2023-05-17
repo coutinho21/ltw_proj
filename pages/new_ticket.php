@@ -9,6 +9,6 @@
     $departments = getDepartments();
 
     outputHeader();
-    outputAddSearchFilter(outputNewTicket($departments));
+    outputAddSearchFilter(outputNewTicket($departments), $departments);
     outputFooter();
 ?>

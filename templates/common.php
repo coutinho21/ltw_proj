@@ -8,6 +8,7 @@
             <title>Trouble Tickets</title>
             <meta charset="UTF-8">
             <meta name="css/viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" href="../icons/ticket.png" type="image/png" sizes="16x16">
             <link rel="stylesheet" href="../css/homepage_client_style.css">
             <link rel="stylesheet" href="../css/ticket.css">
             <link rel="stylesheet" href="../css/profile.css">
@@ -37,22 +38,21 @@
             </footer>
         </body>
         </html>
-<?php } 
+<?php 
+    } 
 
-    function outputAddSearchFilter($content){
+    function outputAddSearchFilter($content, $departments){
 ?>
         <nav class="add-and-search">
             <a href="../pages/new_ticket.php">New ticket</a>
-            <input type="search_ticket" name="search_ticket" placeholder="Search ticket">
+            <input name="search_ticket" placeholder="Search ticket" class="search-ticket"/>
         </nav>
         <main class="main-content">
             <div class="filter">
-                <p>All tickets</p>
-                <ul>
-                    <li><p>Department 1</p></li>
-                    <li><p>Department 2</p></li>
-                    <li><p>Department 3</p></li>
-                    <li><p>Department 4</p></li>
+                <ul class="departments">
+                    <?php foreach($departments as $department){ ?>
+                        <li><p><?=$department['name']?></p></li>
+                    <?php } ?>
                 </ul>
             </div>
             <?=$content?>

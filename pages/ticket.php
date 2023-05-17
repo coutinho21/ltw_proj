@@ -14,7 +14,9 @@
     $ticketHistory = getTicketHistory($_GET['id']);
     $ticketHashtags = getTicketHashtags($_GET['id']);
     $ticketReplies = getTicketReplies($_GET['id']);
+    $departments = getDepartments();
+
     outputHeader();
-    outputAddSearchFilter(outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies));
+    outputAddSearchFilter(outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies), $departments);
     outputFooter();
 ?>

@@ -15,9 +15,11 @@
             $tickets = getUserTickets($_SESSION['username']);
         else 
             $tickets = getAllTickets();
+
+        $departments = getDepartments();
             
         outputHeader(); 
-        outputAddSearchFilter(outputTickets($tickets));
+        outputAddSearchFilter(outputTickets($tickets), $departments);
         outputFooter();
     }
 ?>
