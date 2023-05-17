@@ -3,7 +3,6 @@
     background-color: white;
     margin: .55em;
     margin-left: 1.25em;
-    /* padding-left: 1.5em; */
     height: 528px;
 }
 
@@ -15,15 +14,23 @@
 
 .new-ticket > h2 {
     margin: 1em 1em 0 1em;
-    font-weight: normal;
 }
 
 .new-ticket > form > input, 
-.new-ticket > form > select,
 .new-ticket > form > textarea {
     border-radius: 6px;
     border-color: #4A4A4A;
     border-width: .1em;
+    margin: 1em;
+    padding: 1em;
+    width: fit-content;
+}
+
+.new-ticket > form > select{
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 2px grey;
+    display:inline-block;
     margin: 1em;
     padding: 1em;
     width: fit-content;
