@@ -1,0 +1,56 @@
+.new-ticket {
+    border-radius: 4px;
+    background-color: white;
+    margin: .55em;
+    margin-left: 1.25em;
+    /* padding-left: 1.5em; */
+    height: 528px;
+}
+
+.new-ticket > form {
+    display: block;
+    margin: .5em;
+    justify-content: space-between;
+}
+
+.new-ticket > h2 {
+    margin: 1em 1em 0 1em;
+    font-weight: normal;
+}
+
+.new-ticket > form > input, 
+.new-ticket > form > select,
+.new-ticket > form > textarea {
+    border-radius: 6px;
+    margin: 1em;
+    padding: 1em;
+    width: fit-content;
+}
+
+.new-ticket > form > input {
+    width: 70%;
+    text-align: start;
+}
+.new-ticket > form > select {
+    width: 20%;
+    margin-left: 3em;
+    text-align: center;
+}
+.new-ticket > form > #introduction {
+    width: 95%;
+    height: 55px;
+}
+.new-ticket > form > #description {
+    width: 95%;
+    height: 125px;
+} 
+
+.new-ticket > form > button {
+    border-radius: 10px;
+    border-color: #4A4A4A;
+    border: none;
+    width: fit-content;
+    margin: 1em;
+    padding: 1em;
+}
+
