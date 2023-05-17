@@ -22,6 +22,8 @@
 .new-ticket > form > select,
 .new-ticket > form > textarea {
     border-radius: 6px;
+    border-color: #4A4A4A;
+    border-width: .1em;
     margin: 1em;
     padding: 1em;
     width: fit-content;
@@ -42,15 +44,19 @@
 }
 .new-ticket > form > #description {
     width: 95%;
-    height: 125px;
+    height: 130px;
 } 
 
 .new-ticket > form > button {
-    border-radius: 10px;
-    border-color: #4A4A4A;
+    background-color: #D9D9D9;
+    border-radius: 8px;
     border: none;
     width: fit-content;
-    margin: 1em;
-    padding: 1em;
+    margin: 1em 1em 1em 80em;
+    padding: 1em 2em;
 }
-
+.new-ticket > form > button:hover {
+    background-color: #c1c1c1;
+    margin: 1em 1em 1em 79.8em;
+    padding: 1.1em 2.2em;
+}
