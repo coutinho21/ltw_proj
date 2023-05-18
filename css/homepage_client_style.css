@@ -43,6 +43,7 @@ body > header {
 body > header ul {
     padding: 0;
     height: 4em;
+    width: auto;
 }
 
 body > header ul > li {
