@@ -144,7 +144,35 @@ function filterTicketsByDepartments() {
     }
 }
 
+function faqsDisplay() {
+    const faqs = document.querySelectorAll(".faqs .faq");
+    let openedFaq = null;
+
+    faqs.forEach((faq) => {
+        const question = faq.querySelector("h3");
+        const answer = faq.querySelector("p");
+
+        question.addEventListener("click", () => {
+            if (openedFaq && openedFaq !== faq) {
+                openedFaq.classList.remove("open");
+                openedFaq.querySelector("p").classList.remove("show");
+            }
+
+            faq.classList.toggle("open");
+            answer.classList.toggle("show");
+
+            if (faq.classList.contains("open")) {
+                openedFaq = faq;
+            } else {
+                openedFaq = null;
+            }
+        });
+    });
+}
+   
+
 openTicket();
 addHashtag();
 searchTickets();
 filterTicketsByDepartments();
+faqsDisplay();
