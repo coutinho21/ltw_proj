@@ -39,3 +39,7 @@ export function buildTicket(ticket){
 
     return ticketElement;
 }
+
+export function isArray(what) {
+    return Object.prototype.toString.call(what) === '[object Array]';
+}

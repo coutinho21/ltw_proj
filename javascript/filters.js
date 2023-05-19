@@ -1,4 +1,4 @@
-import { buildTicket } from '../utilities/utilities.js';
+import { buildTicket, isArray } from '../utilities/utilities.js';
 
 function buttonOpenFilters() {
     const button = document.getElementById('filters-button');
@@ -40,8 +40,8 @@ function filtersClose() {
 
 function openFilters() {
     const main = document.getElementById("filters-div");
-
-    if (main) {
+    const getFilters = document.getElementById('filters');
+    if (main && !getFilters) {
         // filters div
         const filters = document.createElement("div");
         filters.id = "filters";
@@ -105,10 +105,14 @@ async function retrieveDateFilterInput() {
 
     const tickets = document.querySelector('.tickets-list ul');
     tickets.innerHTML = '';
-
-    data.forEach(ticket => {
-        tickets.appendChild(buildTicket(ticket));
-    });
+    console.log(data);
+    if(isArray(data)){
+        data.forEach(ticket => {
+            tickets.appendChild(buildTicket(ticket));
+        });
+        return;
+    }
+    tickets.appendChild(buildTicket(data));
 }
 
 function openDateFilter() {
