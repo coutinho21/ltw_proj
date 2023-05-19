@@ -19,22 +19,24 @@
 
     $filter = cleanInput($_GET['filter']);
     $tickets = getAllTickets();
+    $response = array();
 
     if($filter == 'date') {
         $from = strtotime(cleanInput($_GET['from']));
         $to = strtotime(cleanInput($_GET['to']));
         foreach ($tickets as $key => $ticket){
             if(($ticket['date'] > $to) || ($ticket['date'] < $from)){
-                unset($tickets[$key]);
+                continue;
             }
+            $response[] = $ticket;
         }
     }
 
     // re-format date before going to json
-    $tickets = array_map(function($ticket){
+    $response = array_map(function($ticket){
         $ticket['date'] = date('d-m-Y', $ticket['date']);
         return $ticket;
-    }, $tickets);
+    }, $response);
 
-    echo json_encode($tickets);
+    echo json_encode($response);
 ?>
