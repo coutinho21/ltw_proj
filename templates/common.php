@@ -12,6 +12,7 @@
             <link rel="stylesheet" href="../css/homepage_client_style.css">
             <link rel="stylesheet" href="../css/ticket.css">
             <link rel="stylesheet" href="../css/profile.css">
+            <link rel="stylesheet" href="../css/new_ticket.css">
             <link rel="stylesheet" href="../css/faqs.css">
             <script src="../javascript/script.js" defer></script>
             <script src="../errors/errors.js" defer></script>

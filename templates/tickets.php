@@ -121,8 +121,8 @@
                     }
 ?>
                 </select>
-                <textarea name="introduction" placeholder="Introduction" required></textarea>
-                <textarea name="description" placeholder="Description" required></textarea>
+                <textarea id="introduction" name="introduction" placeholder="Introduction" required></textarea>
+                <textarea id="description" name="description" placeholder="Description" required></textarea>
                 <button type="submit">Create</button>
             </form>
         </div>
