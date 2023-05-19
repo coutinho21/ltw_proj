@@ -51,4 +51,11 @@
         $stmt = $db->prepare('UPDATE users SET password = ? WHERE email = ?');
         $stmt->execute(array(password_hash($newPassword, PASSWORD_BCRYPT, $options), $email));
     }
+
+    function getAgents(){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM users WHERE role = ?');
+        $stmt->execute(array('agent'));
+        return $stmt->fetchAll();
+    }
 ?>

@@ -99,7 +99,7 @@ body>header ul>li:last-child {
 /* End of navbar */
 /* Start of add new ticket and search bar */
 
-.add-and-search {
+#add-and-search {
     display: flex;
     flex-direction: row;
     margin: 0 2em;
@@ -109,7 +109,7 @@ body>header ul>li:last-child {
     justify-content: space-between;
 }
 
-.add-and-search>a {
+#add-and-search>a {
     /* New ticket*/
     color: #FFFFFF;
     background-color: #939391;
@@ -126,11 +126,11 @@ body>header ul>li:last-child {
     color: #FFFFFF;
 }
 
-.add-and-search>a:hover {
+#add-and-search>a:hover {
     background-color: #b7b7b7;
 }
 
-.add-and-search>input {
+#add-and-search>input {
     /* search ticket */
     font-size: .8em;
     font-weight: lighter;
@@ -143,7 +143,7 @@ body>header ul>li:last-child {
     background-color: white;
 }
 
-.add-and-search>input::placeholder {
+#add-and-search>input::placeholder {
     padding: 1em;
     color: #939391;
     text-align: start;
@@ -165,7 +165,6 @@ body>header ul>li:last-child {
 }
 
 #filters {
-    display: none;
     position: absolute;
     top: 10%;
     left: 80%;
@@ -200,7 +199,6 @@ body>header ul>li:last-child {
 }
 
 #date-filter {
-    display: none;
     position: absolute;
     top: 10%;
     left: 80%;
@@ -222,7 +220,6 @@ body>header ul>li:last-child {
 }
 
 #agent-filter {
-    display: none;
     position: absolute;
     top: 10%;
     left: 80%;
@@ -267,7 +264,6 @@ body>header ul>li:last-child {
 .tickets-list {
     grid-column: 2 / -1;
     text-align: center;
-    text-justify: center;
     width: auto;
     font-size: .8em;
     border-radius: 4px;
