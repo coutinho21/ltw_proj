@@ -3,9 +3,11 @@
 * {
     font-family: 'Montserrat', sans-serif;
 }
+
 html {
     height: 35vw;
 }
+
 body {
     background-color: #4A4A4A;
     height: 35vw;
@@ -21,7 +23,7 @@ body {
     width: 70vw;
 }
 
-.main > .main-text {
+.main>.main-text {
     display: grid;
     justify-content: center;
     grid-column: 1 / 3;
@@ -30,7 +32,7 @@ body {
     margin-right: 7em;
 }
 
-.main > .main-text > a {
+.main>.main-text>a {
     font-size: 4em;
     font-weight: 900;
     margin: 1vw;
@@ -50,7 +52,7 @@ body {
     grid-column: 1 / 3;
 }
 
-.main > .main-text > img {
+.main>.main-text>img {
     width: 9em;
     margin: 2vw 1vw 2vw 0;
     padding: 1em;
@@ -60,7 +62,7 @@ body {
     justify-self: start;
 }
 
-.main > form {
+.main>form {
     padding: 1em;
     width: 100%;
     height: fit-content;
@@ -75,11 +77,11 @@ body {
     border-radius: 5px;
 }
 
-.main > form > p:first-child { 
+.main>form>p:first-child {
     font-size: 1.5em;
 }
 
-.main > form > input {
+.main>form>input {
     width: 80%;
     height: 2vw;
     border: none;
@@ -90,7 +92,7 @@ body {
     margin: 1em 0;
 }
 
-.main > form > button {
+.main>form>button {
     width: 100px;
     height: 2.5vw;
     border: none;
@@ -123,43 +125,52 @@ nav ul li {
 
 @media (max-width: 70em) {
     body {
-        margin: 2em 0 0; 
+        margin: 2em 0 0;
     }
+
     .main {
         display: block;
         color: #fff;
         margin: 0 5em;
         width: auto;
-    }   
-    .main > .main-text {
+    }
+
+    .main>.main-text {
         padding: 0;
         margin: 2.5em 1em 4em;
     }
-    .main > .main-text > a {
+
+    .main>.main-text>a {
         font-size: 3em;
         font-weight: 700;
         margin-top: 0;
     }
+
     .main h2 {
         font-size: 1.5em;
         margin-top: 0;
     }
-    .main > .main-text > img {
+
+    .main>.main-text>img {
         width: 7em;
     }
-    .main > form {
+
+    .main>form {
         margin: 2em 0;
     }
-    .main > form > p {
+
+    .main>form>p {
         margin: .5em;
     }
-    .main > form > input {
+
+    .main>form>input {
         height: 3vw;
         margin: .6em;
     }
-    .main > form > button {
+
+    .main>form>button {
         height: 3.5vw;
-    } 
+    }
 }
 
 /* 
@@ -202,5 +213,3 @@ nav ul li {
 }
 
  */
-
- 
