@@ -69,9 +69,17 @@
 
 /* ------------- responsive design -------------- */
 @media (max-width: 70em) {  
+    .add-and-search > a {
+        width: 20%;
+    }
+    .add-and-search > .search-ticket {
+        margin-left: 3em;
+        width: 55%;
+    }
     .main-content {
         display: block;
-    }
+        width: auto;
+    }   
     .filter {
         display: flex;
         flex-direction: column;
@@ -79,27 +87,27 @@
         height: 100px;
     }
     .departments {
+        width: auto;
         height: 90px;
         margin-top: 5px;
     }
     .departments > li > p {
         margin: .5em;
     }
+    
     .new-ticket {
         width: auto;
         margin-left: 8.8px;
     }
     .new-ticket > h2 {
         padding-top: .5em;
-        margin-top: .8em;
-        margin-bottom: 0;
+        margin-top: 0;
     }
-
     .new-ticket > form {
         margin-top: 0;
     }
     .new-ticket > form > input {
-        width: 50%;
+        width: 45%;
     }
 
     .new-ticket > form > select {
@@ -114,12 +122,12 @@
     .new-ticket > form > #introduction {
         display: inline;
         width: 20%;
-        height: 150px;
+        height: 200px;
     }
     .new-ticket > form > #description {
         display: inline;
         width: 55%;
-        height: 150px;
+        height: 200px;
     } 
     
     .new-ticket > form > button {
