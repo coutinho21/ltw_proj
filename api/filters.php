@@ -24,8 +24,17 @@
     if($filter == 'date') {
         $from = strtotime(cleanInput($_GET['from']));
         $to = strtotime(cleanInput($_GET['to']));
-        foreach ($tickets as $key => $ticket){
+        foreach ($tickets as $ticket){
             if(($ticket['date'] > $to) || ($ticket['date'] < $from)){
+                continue;
+            }
+            $response[] = $ticket;
+        }
+    }
+    else if($filter == 'agent'){
+        $agent = cleanInput($_GET['agent']);
+        foreach ($tickets as $ticket){
+            if($ticket['agent'] != $agent){
                 continue;
             }
             $response[] = $ticket;

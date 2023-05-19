@@ -1,4 +1,55 @@
 import { buildTicket, isArray } from '../utilities/utilities.js';
+import { openTicket } from './script.js';
+
+function searchTickets() {
+    const search = document.querySelector('.search-ticket');
+
+    if (search) {
+        search.addEventListener('input', async () => {
+            const response = await fetch('../api/search_tickets.php?search=' + search.value);
+            const data = await response.json();
+
+            const tickets = document.querySelector('.tickets-list ul');
+            tickets.innerHTML = '';
+
+            data.forEach(ticket => {
+                tickets.appendChild(buildTicket(ticket));
+            });
+            openTicket();
+        });
+    }
+}
+
+function filterTicketsByDepartments() {
+    const departments = document.querySelectorAll('.departments > li');
+
+    if (departments) {
+        departments.forEach(department => {
+            department.addEventListener('click', async () => {
+                let getElemWithClass = document.querySelector('.active');
+                if (getElemWithClass === department) {
+                    department.classList.remove('active');
+                    window.location.reload();
+                }
+                else if (getElemWithClass !== null) {
+                    getElemWithClass.classList.remove('active');
+                }
+                department.classList.add('active');
+
+                const response = await fetch('../api/filter_ticket_departments.php?department=' + department.querySelector('p').textContent);
+                const data = await response.json();
+
+                const tickets = document.querySelector('.tickets-list ul');
+                tickets.innerHTML = '';
+                
+                data.forEach(ticket => {
+                    tickets.appendChild(buildTicket(ticket));
+                });
+                openTicket();
+            });
+        });
+    }
+}
 
 function buttonOpenFilters() {
     const button = document.getElementById('filters-button');
@@ -105,43 +156,54 @@ async function retrieveDateFilterInput() {
 
     const tickets = document.querySelector('.tickets-list ul');
     tickets.innerHTML = '';
-    console.log(data);
+
     if(isArray(data)){
         data.forEach(ticket => {
             tickets.appendChild(buildTicket(ticket));
         });
+        openTicket();
         return;
     }
     tickets.appendChild(buildTicket(data));
+    openTicket();
 }
 
 function openDateFilter() {
     const main = document.getElementById("filters-div");
 
     if (main) {
+        // filters div
         const dateFilter = document.createElement("div");
         dateFilter.id = "date-filter";
 
+        // dateFilter title
         const title = document.createElement("h4");
         title.textContent = "Filter by date";
         dateFilter.appendChild(title);
 
+        // dateFilter label from
         const labelFrom = document.createElement("label");
         labelFrom.textContent = "From";
         dateFilter.appendChild(labelFrom);
+
+        // dateFilter input from
         const inputFrom = document.createElement("input");
         inputFrom.type = "date";
         inputFrom.id = "date-filter-input-from";
         dateFilter.appendChild(inputFrom);
 
+        // dateFilter label to
         const labelTo = document.createElement("label");
         labelTo.textContent = "To";
         dateFilter.appendChild(labelTo);
+
+        // dateFilter input to
         const inputTo = document.createElement("input");
         inputTo.type = "date";
         inputTo.id = "date-filter-input-to";
         dateFilter.appendChild(inputTo);
 
+        // dateFilter button
         const button = document.createElement("button");
         button.textContent = "Filter";
         button.onclick = retrieveDateFilterInput;
@@ -151,53 +213,66 @@ function openDateFilter() {
     }
 }
 
-function retrieveAgentFilterInput() {
+async function retrieveAgentFilterInput() {
+    const agentFilterInput = document.getElementById("agent-filter-input").value;
+    console.log(agentFilterInput);
+    const response = await fetch('../api/filters.php?filter=agent&agent=' + agentFilterInput);
+    const data = await response.json();
 
+    const tickets = document.querySelector('.tickets-list ul');
+    tickets.innerHTML = '';
+
+    if(isArray(data)){
+        data.forEach(ticket => {
+            tickets.appendChild(buildTicket(ticket));
+        });
+        openTicket();
+        return;
+    }
+    tickets.appendChild(buildTicket(data));
+    openTicket();
 }
 
 async function openAgentFilter() {
-    /* fazer isto
-    <div id="agent-filter">
-        <h4>Filter by agent</h4>
-        <label>Select agent:</label>
-        <select>
-            <option value="agent1">Agent 1</option>
-        </select>
-    </div>
-
-    */
-
     const main = document.getElementById("filters-div");
 
     if (main) {
-        const response = await fetch('../api/filters.php?filter=agent');
+        // retrieve agents from database
+        const response = await fetch('../api/data.php?data=agents');
         const data = await response.json();
 
+        // filters div
         const agentFilter = document.createElement("div");
         agentFilter.id = "agent-filter";
 
+        // agentFilter title
         const title = document.createElement("h4");
         title.textContent = "Filter by agent";
         agentFilter.appendChild(title);
 
+        // agentFilter label
         const labelAgent = document.createElement("label");
         labelAgent.textContent = "Select agent:";
         agentFilter.appendChild(labelAgent);
+
+        // agentFilter select
         const selectAgent = document.createElement("select");
         selectAgent.id = "agent-filter-input";
-        for (let i = 0; i < data.length; i++) {
+        data.forEach(agent => {
             const option = document.createElement("option");
-            option.value = data[i].id;
-            option.textContent = data[i].name;
+            option.value = agent.username;
+            option.textContent = agent.name;
             selectAgent.appendChild(option);
-        }
+        });
+        agentFilter.appendChild(selectAgent);
 
+        // agentFilter button
         const button = document.createElement("button");
         button.textContent = "Filter";
-        button.onclick = retrieveDateFilterInput;
-        dateFilter.appendChild(button);
+        button.onclick = retrieveAgentFilterInput;
+        agentFilter.appendChild(button);
 
-        main.appendChild(dateFilter);
+        main.appendChild(agentFilter);
     }
 }
 
@@ -217,6 +292,7 @@ function openHashtagFilter() {
 
 }
 
-
-filtersClose();
+searchTickets();
+filterTicketsByDepartments();
 buttonOpenFilters();
+filtersClose();

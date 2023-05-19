@@ -54,8 +54,8 @@
 
     function getAgents(){
         $db = getDatabaseConnection();
-        $stmt = $db->prepare('SELECT * FROM users WHERE role = ?');
-        $stmt->execute(array('agent'));
+        $stmt = $db->prepare('SELECT * FROM users WHERE role = ? OR role = ?');
+        $stmt->execute(array('agent', 'admin'));
         return $stmt->fetchAll();
     }
 ?>

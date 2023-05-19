@@ -1,6 +1,4 @@
-import {buildTicket} from '../utilities/utilities.js';
-
-function openTicket() {
+export function openTicket() {
     const tickets = document.querySelectorAll('.ticket');
 
     if (tickets) {
@@ -20,54 +18,6 @@ function addHashtag() {
             alert('You pressed the # key'); //TODO add the hashtag
         }
     });
-}
-
-function searchTickets() {
-    const search = document.querySelector('.search-ticket');
-
-    if (search) {
-        search.addEventListener('input', async () => {
-            const response = await fetch('../api/search_tickets.php?search=' + search.value);
-            const data = await response.json();
-
-            const tickets = document.querySelector('.tickets-list ul');
-            tickets.innerHTML = '';
-
-            data.forEach(ticket => {
-                tickets.appendChild(buildTicket(ticket));
-            });
-        });
-    }
-}
-
-function filterTicketsByDepartments() {
-    const departments = document.querySelectorAll('.departments > li');
-
-    if (departments) {
-        departments.forEach(department => {
-            department.addEventListener('click', async () => {
-                let getElemWithClass = document.querySelector('.active');
-                if (getElemWithClass === department) {
-                    department.classList.remove('active');
-                    window.location.reload();
-                }
-                else if (getElemWithClass !== null) {
-                    getElemWithClass.classList.remove('active');
-                }
-                department.classList.add('active');
-
-                const response = await fetch('../api/filter_ticket_departments.php?department=' + department.querySelector('p').textContent);
-                const data = await response.json();
-
-                const tickets = document.querySelector('.tickets-list ul');
-                tickets.innerHTML = '';
-                
-                data.forEach(ticket => {
-                    tickets.appendChild(buildTicket(ticket));
-                });
-            });
-        });
-    }
 }
 
 function faqsDisplay() {
@@ -99,6 +49,4 @@ function faqsDisplay() {
 
 openTicket();
 addHashtag();
-searchTickets();
-filterTicketsByDepartments();
 faqsDisplay();

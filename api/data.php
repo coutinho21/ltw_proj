@@ -1,5 +1,4 @@
 <?php
-    require_once(__DIR__ . '/../database/tickets.php');
     require_once(__DIR__ . '/../database/users.php');
     require_once(__DIR__ . '/../utilities/utilities.php');
 
@@ -17,9 +16,16 @@
         exit();
     }
 
-    $ticket = getAllTickets();
+    $response = array();
+    $dataType = cleanInput($_GET['data']);
 
-    
+    if($dataType == 'agents'){
+        $data = getAgents();
+    }
 
-    echo json_encode($tickets);
+    foreach($data as $value){
+        $response[] = $value;
+    }
+
+    echo json_encode($response);
 ?>

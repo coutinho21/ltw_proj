@@ -198,6 +198,8 @@ body>header ul>li:last-child {
 }
 
 #date-filter {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 10%;
     left: 80%;
@@ -215,10 +217,33 @@ body>header ul>li:last-child {
 }
 
 #date-filter>label {
-    padding: 1em;
+    padding: 0 1em;
+}
+
+#date-filter>input {
+    margin: 1em;
+    padding: .5em;
+    border-style: none;
+    border-radius: 4px;
+    background-color: #D9D9D9;
+}
+
+#date-filter>button {
+    margin: 1em;
+    padding: .5em;
+    border-style: none;
+    border-radius: 4px;
+    background-color: #939391;
+    color: #FFFFFF;
+}
+
+#date-filter>button:hover {
+    background-color: #b7b7b7;
 }
 
 #agent-filter {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     top: 10%;
     left: 80%;
@@ -227,6 +252,38 @@ body>header ul>li:last-child {
     background-color: #fff;
     border: 1px solid #4A4A4A;
     border-radius: 5px;
+}
+
+#agent-filter>h4 {
+    margin: 1em 0 0 0;
+    padding: 1em;
+    text-align: center;
+}
+
+#agent-filter>label {
+    padding: 1em;
+}
+
+#agent-filter>select {
+    margin: 1em;
+    padding: .5em;
+    border-style: none;
+    border-radius: 4px;
+    background-color: #D9D9D9;
+    width: 85%;
+}
+
+#agent-filter>button {
+    margin: 1em;
+    padding: .5em;
+    border-style: none;
+    border-radius: 4px;
+    background-color: #939391;
+    color: #FFFFFF;
+}
+
+#agent-filter>button:hover {
+    background-color: #b7b7b7;
 }
 
 /* End of filters */
