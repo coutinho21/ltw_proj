@@ -5,8 +5,7 @@
 }
 
 html {
-    position: relative;
-    min-height: 100%;
+    height: 100%;
 }
 
 body {
@@ -135,7 +134,7 @@ body>header ul>li:last-child {
     font-size: .8em;
     font-weight: lighter;
     text-justify: center;
-    margin-left: 9em;
+    margin-left: 7em;
     height: 32px;
     width: 35%;
     border-style: none;
