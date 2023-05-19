@@ -149,12 +149,15 @@ body>header ul>li:last-child {
     text-align: start;
 }
 
-.filters-button {
+/* End of add new ticket and search bar */
+/* Start of filters */
+
+#filters-button {
     border: none;
     background: none;
 }
 
-.filters-button > img {
+#filters-button > img {
     width: 40px;
     aspect-ratio: 3/2;
     object-fit: contain;
@@ -164,8 +167,73 @@ body>header ul>li:last-child {
 #filters {
     display: none;
     position: absolute;
+    top: 10%;
+    left: 80%;
+    width: 200px;
+    height: 300px;
+    background-color: #fff;
+    border: 1px solid #4A4A4A;
+    border-radius: 5px;
 }
-/* End of add new ticket and search bar */
+
+#filters>h4 {
+    margin: 1em 0 0 0;
+    padding: 1em;
+    text-align: center;
+}
+
+#filters>ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 1em;
+}
+
+#filters>ul>li {
+    padding: 1em;
+    justify-self: left;
+}
+
+#filters>ul>li>p {
+    margin: 0;
+    padding: 0;
+}
+
+#date-filter {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    width: 200px;
+    height: 300px;
+    background-color: #fff;
+    border: 1px solid #4A4A4A;
+    border-radius: 5px;
+}
+
+#date-filter>h4 {
+    margin: 1em 0 0 0;
+    padding: 1em;
+    text-align: center;
+}
+
+#date-filter>label {
+    padding: 1em;
+}
+
+#agent-filter {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    width: 200px;
+    height: 300px;
+    background-color: #fff;
+    border: 1px solid #4A4A4A;
+    border-radius: 5px;
+}
+
+/* End of filters */
 /* Start of main content */
 
 .main-content {

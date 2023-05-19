@@ -49,16 +49,31 @@
             <a href="../pages/new_ticket.php">New ticket</a>
             <input name="search_ticket" placeholder="Search ticket" class="search-ticket"/>
             <?php if($role != 'client') { ?>
-                <button type="button" class="filters-button" onclick="openFilters()"><img src="../icons/filter.png" alt="filter"/></button>
+                <button type="button" id="filters-button" onclick="openFilters()"><img src="../icons/filter.png" alt="filter"/></button>
                 <div id="filters">
                     <h4>Filter by:</h4>
                     <ul>
-                        <li>Date</li>
-                        <li>Assigned agent</li>
-                        <li>Status</li>
-                        <li>Hashtag</li>
+                        <li onclick="openDateFilter()"><p>Date</p></li>
+                        <li onclick="openAgentFilter()"><p>Assigned agent</p></li>
+                        <li id="status-filter"><p>Status</p></li>
+                        <li id="hashtag-filter"><p>Hashtag</p></li>
                     </ul>
                 </div>
+                <div id="date-filter">
+                    <h4>Filter by date</h4>
+                    <label>From:</label>
+                    <input type="date" id="date-filter-input-from"/>
+                    <label>To:</label>
+                    <input type="date" id="date-filter-input-to"/>
+                </div>
+                <div id="agent-filter">
+                    <h4>Filter by agent</h4>
+                    <label>Select agent:</label>
+                    <select>
+                        <option value="agent1">Agent 1</option>
+                    </select>
+                </div>
+
             <?php }?>
         </nav>
         <main class="main-content">
