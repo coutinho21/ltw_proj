@@ -169,7 +169,7 @@ function faqsDisplay() {
         });
     });
 }
-   
+
 
 openTicket();
 addHashtag();

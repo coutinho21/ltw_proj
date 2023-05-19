@@ -19,12 +19,13 @@
     overflow-x: hidden;
 }
 
-.ticket-discussion a:first-child { /* Arrow image link to go back*/
+.ticket-discussion a:first-child {
+    /* Arrow image link to go back*/
     margin-left: 0;
     margin-right: auto;
 }
 
-.ticket-header{
+.ticket-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
