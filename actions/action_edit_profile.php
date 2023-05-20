@@ -8,7 +8,6 @@
         exit();
     }
 
-
     $username = $_POST['user'];
     $newUsername = $_POST['new_username'];
     $newName = $_POST['new_name'];

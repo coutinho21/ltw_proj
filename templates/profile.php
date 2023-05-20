@@ -1,10 +1,14 @@
 <?php
     function outputProfile($user, $visiting){
+        $editProfile = "window.location.href='edit_profile.php'";
+        if ($visiting) {
+            $editProfile = "window.location.href='edit_profile.php?username=".$user['username']."'";
+        }
 ?>
         <main class="profile-info">
             <div class="header-edit-profile">
                 <h1>Profile</h1>
-                <button onclick="window.location.href='edit_profile.php'">Edit profile</button>
+                <button onclick="<?=$editProfile?>">Edit profile</button>
             </div>
             <div>
                 <label>name</label>
@@ -40,9 +44,13 @@
 ?>
             <div class="change-pass-logout">
                 <a href="change_password.php">Change password</a>
-                <?php if(!$visiting){ ?>
-                <a href="../actions/action_logout.php">Logout</a>
-                <?php } ?>
+<?php 
+                if(!$visiting){ 
+?>
+                    <a href="../actions/action_logout.php">Logout</a>
+<?php 
+                } 
+?>
             </div>
         </main>
 <?php
@@ -74,11 +82,15 @@
 <?php
     }
 
-    function outputEditProfile($user){
+    function outputEditProfile($user, $visiting){
+        $profile = "window.location.href='profile.php'";
+        if ($visiting) {
+            $profile = "window.location.href='profile.php?username=".$user['username']."'";
+        }
 ?>
     <main class="edit-profile">
         <h1>Edit profile</h1>
-        <form class="edit-profile-form" method="post" action="../actions/action_edit_profile.php">
+        <form class="edit-profile-form" method="post" action="../actions/action_edit_profile.php?username=">
             <input type="hidden" name="user" value="<?=$user['username']?>"></input>
             <label>name<br/>
                 <input name="new_name" value="<?=$user['name']?>"></input> <br/><br/>
@@ -90,7 +102,7 @@
                 <input name="new_email" value="<?=$user['email']?>"></input> <br/><br/>
             </label> 
             <div class="cancel-done">
-                <button type="button" onclick="window.location.href='profile.php'">Cancel</button>
+                <button type="button" onclick="<?=$profile?>">Cancel</button>
                 <button type="submit">Done</button>
             </div>
         </form>
