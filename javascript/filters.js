@@ -172,7 +172,7 @@ function openDateFilter() {
     const main = document.getElementById("filters-div");
 
     if (main) {
-        // filters div
+        // dateFilter div
         const dateFilter = document.createElement("div");
         dateFilter.id = "date-filter";
 
@@ -241,7 +241,7 @@ async function openAgentFilter() {
         const response = await fetch('../api/data.php?data=agents');
         const data = await response.json();
 
-        // filters div
+        // agentFilter div
         const agentFilter = document.createElement("div");
         agentFilter.id = "agent-filter";
 
@@ -301,10 +301,10 @@ async function openStatusFilter() {
 
     if (main) {
         // retrieve status from database
-        const response = await fetch('../api/data.php?data=status');
+        const response = await fetch('../api/data.php?data=statuses');
         const data = await response.json();
 
-        // filters div
+        // statusFilter div
         const statusFilter = document.createElement("div");
         statusFilter.id = "status-filter";
 
@@ -339,12 +339,67 @@ async function openStatusFilter() {
     }
 }
 
-function retrieveHashtagFilterInput() {
+async function retrieveHashtagFilterInput() {
+    const hashtagFilterInput = document.getElementById("hashtag-filter-input").value;
 
+    const response = await fetch('../api/filters.php?filter=hashtag&hashtag=' + hashtagFilterInput);
+    const data = await response.json();
+
+    const tickets = document.querySelector('.tickets-list ul');
+    tickets.innerHTML = '';
+
+    if(isArray(data)){
+        data.forEach(ticket => {
+            tickets.appendChild(buildTicket(ticket));
+        });
+        openTicket();
+        return;
+    }
+    tickets.appendChild(buildTicket(data));
+    openTicket();
 }
 
-function openHashtagFilter() {
+async function openHashtagFilter() {
+    const main = document.getElementById("filters-div");
 
+    if (main) {
+        // retrieve hashtags from database
+        const response = await fetch('../api/data.php?data=hashtags');
+        const data = await response.json();
+
+        // hashtagFilter div
+        const hashtagFilter = document.createElement("div");
+        hashtagFilter.id = "hashtag-filter";
+
+        // statusFilter title
+        const title = document.createElement("h4");
+        title.textContent = "Filter by hashtag";
+        hashtagFilter.appendChild(title);
+
+        // statusFilter label
+        const labelHashtag = document.createElement("label");
+        labelHashtag.textContent = "Select hashtag:";
+        hashtagFilter.appendChild(labelHashtag);
+
+        // statusFilter select
+        const selectHashtag = document.createElement("select");
+        selectHashtag.id = "hashtag-filter-input";
+        data.forEach(hashtag => {
+            const option = document.createElement("option");
+            option.value = hashtag.id;
+            option.textContent = hashtag.name;
+            selectHashtag.appendChild(option);
+        });
+        hashtagFilter.appendChild(selectHashtag);
+
+        // statusFilter button
+        const button = document.createElement("button");
+        button.textContent = "Filter";
+        button.onclick = retrieveHashtagFilterInput;
+        hashtagFilter.appendChild(button);
+
+        main.appendChild(hashtagFilter);
+    }
 }
 
 searchTickets();

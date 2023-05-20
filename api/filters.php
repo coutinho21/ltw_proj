@@ -49,6 +49,17 @@
             $response[] = $ticket;
         }
     }
+    else if($filter == 'hashtag'){
+        $hashtag = cleanInput($_GET['hashtag']);
+        $ticketsHashtags = getTicketsHashtags();
+        foreach ($tickets as $ticket){
+            foreach ($ticketsHashtags as $ticketHashtag){
+                if(($ticket['id'] == $ticketHashtag['ticket_id']) && ($ticketHashtag['hashtag_id'] == $hashtag)){
+                    $response[] = $ticket;
+                }
+            }
+        }
+    }
 
     // re-format date before going to json
     $response = array_map(function($ticket){
@@ -57,4 +68,3 @@
     }, $response);
 
     echo json_encode($response);
-?>

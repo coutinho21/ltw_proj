@@ -80,4 +80,18 @@
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    function getHashtags(){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM hashtags');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    function getTicketsHashtags(){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM tickets_hashtags');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 ?>

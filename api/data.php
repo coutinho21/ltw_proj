@@ -23,8 +23,11 @@
     if($dataType == 'agents'){
         $data = getAgents();
     }
-    else if($dataType == 'status'){
+    else if($dataType == 'statuses'){
         $data = getStatuses();
+    }
+    else if ($dataType == 'hashtags') {
+        $data = getHashtags();
     }
 
     foreach($data as $value){
@@ -32,4 +35,3 @@
     }
 
     echo json_encode($response);
-?>
