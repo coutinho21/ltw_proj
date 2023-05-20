@@ -52,8 +52,8 @@
 
     function newTicket($user, $department, $title, $introduction, $description){
         $db = getDatabaseConnection();
-        $stmt = $db->prepare('INSERT INTO tickets (client, department, title, introduction, description, date, status) VALUES (?, ?, ?, ?, ?, ?, ?)');
-        $stmt->execute(array($user, $department, $title, $introduction, $description, time(), 'open'));
+        $stmt = $db->prepare('INSERT INTO tickets (client, department_id, title, introduction, description, date, status_id) VALUES (?, ?, ?, ?, ?, ?, ?)');
+        $stmt->execute(array($user, $department, $title, $introduction, $description, time(), 1));
         return $db->lastInsertId();
     }
 
@@ -66,11 +66,18 @@
 
     function getTicketsByDepartment($department){
         $db = getDatabaseConnection();
-        $stmt = $db->prepare('SELECT tickets.* FROM tickets 
+        $stmt = $db->prepare('SELECT * FROM tickets 
                               JOIN departments 
-                              ON tickets.department = departments.id
+                              ON tickets.department_id = departments.id
                               WHERE departments.name = ?');
         $stmt->execute(array($department));
+        return $stmt->fetchAll();
+    }
+
+    function getStatuses(){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM status');
+        $stmt->execute();
         return $stmt->fetchAll();
     }
 ?>

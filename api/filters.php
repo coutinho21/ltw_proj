@@ -31,10 +31,19 @@
             $response[] = $ticket;
         }
     }
-    else if($filter == 'agent'){
+    else if($filter == 'agent') {
         $agent = cleanInput($_GET['agent']);
         foreach ($tickets as $ticket){
             if($ticket['agent'] != $agent){
+                continue;
+            }
+            $response[] = $ticket;
+        }
+    }
+    else if($filter == 'status') {
+        $status = cleanInput($_GET['status']);
+        foreach ($tickets as $ticket){
+            if($ticket['status_id'] != $status){
                 continue;
             }
             $response[] = $ticket;

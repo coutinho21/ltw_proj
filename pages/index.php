@@ -17,9 +17,10 @@
             $tickets = getAllTickets();
 
         $departments = getDepartments();
+        $statuses = getStatuses();
             
         outputHeader(); 
-        outputAddSearchFilter(outputTickets($tickets), $departments, $user['role']);
+        outputAddSearchFilter(outputTickets($tickets, $statuses), $departments, $user['role']);
         outputFooter();
     }
 ?>

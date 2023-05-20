@@ -1,4 +1,5 @@
 <?php
+    require_once(__DIR__ . '/../database/tickets.php');
     require_once(__DIR__ . '/../database/users.php');
     require_once(__DIR__ . '/../utilities/utilities.php');
 
@@ -21,6 +22,9 @@
 
     if($dataType == 'agents'){
         $data = getAgents();
+    }
+    else if($dataType == 'status'){
+        $data = getStatuses();
     }
 
     foreach($data as $value){

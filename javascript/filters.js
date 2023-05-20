@@ -215,7 +215,7 @@ function openDateFilter() {
 
 async function retrieveAgentFilterInput() {
     const agentFilterInput = document.getElementById("agent-filter-input").value;
-    console.log(agentFilterInput);
+
     const response = await fetch('../api/filters.php?filter=agent&agent=' + agentFilterInput);
     const data = await response.json();
 
@@ -276,12 +276,67 @@ async function openAgentFilter() {
     }
 }
 
-function retrieveStatusFilterInput() {
+async function retrieveStatusFilterInput() {
+    const statusFilterInput = document.getElementById("status-filter-input").value;
 
+    const response = await fetch('../api/filters.php?filter=status&status=' + statusFilterInput);
+    const data = await response.json();
+
+    const tickets = document.querySelector('.tickets-list ul');
+    tickets.innerHTML = '';
+
+    if(isArray(data)){
+        data.forEach(ticket => {
+            tickets.appendChild(buildTicket(ticket));
+        });
+        openTicket();
+        return;
+    }
+    tickets.appendChild(buildTicket(data));
+    openTicket();
 }
 
-function openStatusFilter() {
+async function openStatusFilter() {
+    const main = document.getElementById("filters-div");
 
+    if (main) {
+        // retrieve status from database
+        const response = await fetch('../api/data.php?data=status');
+        const data = await response.json();
+
+        // filters div
+        const statusFilter = document.createElement("div");
+        statusFilter.id = "status-filter";
+
+        // statusFilter title
+        const title = document.createElement("h4");
+        title.textContent = "Filter by status";
+        statusFilter.appendChild(title);
+
+        // statusFilter label
+        const labelStatus = document.createElement("label");
+        labelStatus.textContent = "Select status:";
+        statusFilter.appendChild(labelStatus);
+
+        // statusFilter select
+        const selectStatus = document.createElement("select");
+        selectStatus.id = "status-filter-input";
+        data.forEach(status => {
+            const option = document.createElement("option");
+            option.value = status.id;
+            option.textContent = status.name;
+            selectStatus.appendChild(option);
+        });
+        statusFilter.appendChild(selectStatus);
+
+        // statusFilter button
+        const button = document.createElement("button");
+        button.textContent = "Filter";
+        button.onclick = retrieveStatusFilterInput;
+        statusFilter.appendChild(button);
+
+        main.appendChild(statusFilter);
+    }
 }
 
 function retrieveHashtagFilterInput() {
