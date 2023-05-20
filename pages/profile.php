@@ -19,12 +19,13 @@
         $username = $_GET['username'];
     }
 
+    $departments = getDepartments();
+    $usersDepartments = getUsersDepartments();
+
 
     // viewing own profile
     if ($username == $_SESSION['username']) {
         if($user['role'] != 'client'){
-            $departments = getDepartments();
-            $usersDepartments = getUsersDepartments();
             $user['departments'] = array();
             foreach($usersDepartments as $usersDepartment){
                 if($usersDepartment['user'] == $user['username']){
@@ -39,15 +40,9 @@
         $userToVisit = getUser($username);
 
         // get departments for agents and admins
-        if($user['role'] != 'client'){
-            $departments = getDepartments();
-            $usersDepartments = getUsersDepartments();
-            $user['departments'] = array();
+        if($userToVisit['role'] != 'client'){
             $userToVisit['departments'] = array();
             foreach($usersDepartments as $usersDepartment){
-                if($usersDepartment['user'] == $user['username']){
-                    $user['departments'][] = $departments[$usersDepartment['department_id'] - 1]['name'];
-                }
                 if($usersDepartment['user'] == $userToVisit['username']){
                     $userToVisit['departments'][] = $departments[$usersDepartment['department_id'] - 1]['name'];
                 }
@@ -58,7 +53,7 @@
             outputProfile($userToVisit, true);
         }
         else {
-            outputUserProfile($userToVisit);
+            outputUserProfile($userToVisit, $userToVisit['role']);
         }
     }
     

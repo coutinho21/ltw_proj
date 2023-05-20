@@ -58,7 +58,7 @@
 <?php
     }
 
-    function outputUserProfile($user){
+    function outputUserProfile($user, $role){
 ?>
         <main class="profile-info">
             <div class="header-edit-profile">
@@ -80,6 +80,22 @@
                 <label>role</label>
                 <p><?=$user['role']?></p>
             </div>
+<?php       
+            if($user['role'] != 'client'){
+?>
+                <div>
+                    <label>departments</label>
+<?php
+                foreach($user['departments'] as $department){
+?>
+                    <p><?=$department?></p>
+<?php
+                }
+?>
+                </div>
+<?php
+            }
+?>
         </main>
 <?php
     }
