@@ -1,5 +1,5 @@
 <?php
-    function outputProfile($user){
+    function outputProfile($user, $visiting){
 ?>
         <main class="profile-info">
             <div class="header-edit-profile">
@@ -22,9 +22,27 @@
                 <label>role</label>
                 <p><?=$user['role']?></p>
             </div>
+<?php       
+            if($user['role'] != 'client'){
+?>
+                <div>
+                    <label>departments</label>
+<?php
+                foreach($user['departments'] as $department){
+?>
+                    <p><?=$department?></p>
+<?php
+                }
+?>
+                </div>
+<?php
+            }
+?>
             <div class="change-pass-logout">
                 <a href="change_password.php">Change password</a>
+                <?php if(!$visiting){ ?>
                 <a href="../actions/action_logout.php">Logout</a>
+                <?php } ?>
             </div>
         </main>
 <?php

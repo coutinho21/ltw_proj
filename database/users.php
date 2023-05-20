@@ -58,4 +58,11 @@
         $stmt->execute(array('agent', 'admin'));
         return $stmt->fetchAll();
     }
+
+    function getUsersDepartments(){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM users_departments');
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 ?>
