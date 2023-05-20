@@ -2,43 +2,26 @@
 .edit-profile,
 .change-password {
     margin: auto;
+    margin-top: 3.5em;
+    margin-bottom: 3.5em;
     width: 300px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     border: 1px solid #000;
     background-color: #fff;
-    padding: 2em;
-    justify-content: space-between;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-height: calc(100vh - 250px);
-    overflow-y: auto;
+    padding: 1em 2em 1em 2em;
+    justify-content: space-evenly;
     text-overflow: ellipsis;
 }
 
-
-@media screen and (min-height: 43.75em) {
-
-    .profile-info,
-    .edit-profile,
-    .change-password {
-        height: 400px;
-
-    }
+.profile-info h1,
+.edit-profile h1,
+.change-password h1 {
+    font-size: 1.7em;
+    font-weight: 600;
 }
 
-
-@media screen and (max-height: 43.6875em) {
-
-    .profile-info,
-    .edit-profile,
-    .change-password {
-        height: 350px;
-    }
-}
 
 .header-edit-profile {
     display: flex;
@@ -63,8 +46,6 @@
     background-color: #C7C7C7;
 }
 
-.change-password,
-.edit-profile,
 .profile-info label {
     font-weight: 300;
     font-size: 12px;
