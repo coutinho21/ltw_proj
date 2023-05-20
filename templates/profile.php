@@ -1,8 +1,10 @@
 <?php
     function outputProfile($user, $visiting){
         $editProfile = "window.location.href='edit_profile.php'";
+        $changePassword = "change_password.php";
         if ($visiting) {
             $editProfile = "window.location.href='edit_profile.php?username=".$user['username']."'";
+            $changePassword = "change_password.php?username=".$user['username']."";
         }
 ?>
         <main class="profile-info">
@@ -43,7 +45,7 @@
             }
 ?>
             <div class="change-pass-logout">
-                <a href="change_password.php">Change password</a>
+                <a href="<?=$changePassword?>">Change password</a>
 <?php 
                 if(!$visiting){ 
 ?>
@@ -91,6 +93,7 @@
     <main class="edit-profile">
         <h1>Edit profile</h1>
         <form class="edit-profile-form" method="post" action="../actions/action_edit_profile.php?username=">
+            <input type="hidden" name="visiting" value="<?=$visiting?>"></input>
             <input type="hidden" name="user" value="<?=$user['username']?>"></input>
             <label>name<br/>
                 <input name="new_name" value="<?=$user['name']?>"></input> <br/><br/>
@@ -110,11 +113,17 @@
 <?php
     }
 
-    function outputChangePassword($user){
+    function outputChangePassword($user, $visiting){
+        $profile = "window.location.href='profile.php'";
+        if ($visiting) {
+            $profile = "window.location.href='profile.php?username=".$user['username']."'";
+        }
 ?>
         <main class="change-password">
             <h1>Change password</h1>
             <form class="change-password-form" method="post" action="../actions/action_change_password.php">
+                <input type="hidden" name="user" value="<?=$user['username']?>"></input>
+                <input type="hidden" name="visiting" value="<?=$visiting?>"></input>
                 <input type="hidden" name="user_email" value="<?=$user['email']?>"></input>
                 <label>current password<br/>
                     <input name="current_password" type="password"></input> <br/><br/>
@@ -126,7 +135,7 @@
                     <input name="confirm_new_password" type="password"></input> <br/><br/>
                 </label> 
                 <div class="cancel-done">
-                    <button type="button" onclick="window.location.href='profile.php'">Cancel</button>
+                    <button type="button" onclick="<?=$profile?>">Cancel</button>
                     <button type="submit">Done</button>
                 </div>
             </form>

@@ -54,7 +54,7 @@
             }
         }
 
-        if($user['role'] == 'admin'){
+        if($user['role'] == 'admin' && $userToVisit['role'] != 'admin'){
             outputProfile($userToVisit, true);
         }
         else {
