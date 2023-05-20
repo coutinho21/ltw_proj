@@ -53,7 +53,7 @@
             outputProfile($userToVisit, true);
         }
         else {
-            outputUserProfile($userToVisit, $userToVisit['role']);
+            outputUserProfile($userToVisit);
         }
     }
     

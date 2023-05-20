@@ -29,7 +29,7 @@
                 <p><?=$user['role']?></p>
             </div>
 <?php       
-            if($user['role'] != 'client'){
+            if($user['role'] != 'client' && count($user['departments']) > 0){
 ?>
                 <div>
                     <label>departments</label>
@@ -58,7 +58,7 @@
 <?php
     }
 
-    function outputUserProfile($user, $role){
+    function outputUserProfile($user){
 ?>
         <main class="profile-info">
             <div class="header-edit-profile">
@@ -81,7 +81,7 @@
                 <p><?=$user['role']?></p>
             </div>
 <?php       
-            if($user['role'] != 'client'){
+            if($user['role'] != 'client' && count($user['departments']) > 0){
 ?>
                 <div>
                     <label>departments</label>
@@ -108,7 +108,7 @@
 ?>
     <main class="edit-profile">
         <h1>Edit profile</h1>
-        <form class="edit-profile-form" method="post" action="../actions/action_edit_profile.php?username=">
+        <form id="edit-profile-form" class="edit-profile-form" method="post" action="../actions/action_edit_profile.php">
             <input type="hidden" name="visiting" value="<?=$visiting?>"></input>
             <input type="hidden" name="user" value="<?=$user['username']?>"></input>
             <label>name<br/>
@@ -120,9 +120,38 @@
             <label>email<br/>
                 <input name="new_email" value="<?=$user['email']?>"></input> <br/><br/>
             </label> 
+<?php
+            if($visiting) {
+?>
+                <label>role<br/>
+                    <select name="new_role">
+                        <option value="client" <?php if($user['role'] == 'client') echo 'selected';?>>client</option>
+                        <option value="agent" <?php if($user['role'] == 'agent') echo 'selected';?>>agent</option>
+                        <option value="admin" <?php if($user['role'] == 'admin') echo 'selected';?>>admin</option>
+                    </select> <br/><br/>
+                </label>
+<?php
+            }
+            if(($user['role'] != 'client')){
+?>
+                <label id="departments-label">departments<br/>
+                    <ul id="new_departments">
+<?php
+                    foreach($user['departments'] as $department){
+?>
+                        <li><p><?=$department?></p></li>
+<?php
+                    }
+?>                      
+                        <li><p id="add-remove-user-department">Add/Remove department</p></li>
+                    </ul> <br/><br/>
+                </label>
+<?php           
+            }
+?>
             <div class="cancel-done">
                 <button type="button" onclick="<?=$profile?>">Cancel</button>
-                <button type="submit">Done</button>
+                <button type="button" id="done-button-edit-profile">Done</button>
             </div>
         </form>
     </main>

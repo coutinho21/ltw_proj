@@ -16,6 +16,7 @@
             <link rel="stylesheet" href="../css/faqs.css">
             <script type="module" src="../javascript/script.js" defer></script>
             <script type="module" src="../javascript/filters.js" defer></script>
+            <script type="module" src="../javascript/edit_profile.js" defer></script>
             <script type="module" src="../errors/errors.js" defer></script>
         </head>
         <body>

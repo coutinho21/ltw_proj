@@ -20,7 +20,6 @@ body {
 
 main {
     flex: 1;
-
 }
 
 li {
@@ -156,7 +155,7 @@ body>header ul>li:last-child {
     background: none;
 }
 
-#filters-button > img {
+#filters-button>img {
     width: 40px;
     aspect-ratio: 3/2;
     object-fit: contain;

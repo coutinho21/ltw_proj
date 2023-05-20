@@ -17,7 +17,6 @@
         exit();
     }
 
-    $response = array();
     $dataType = cleanInput($_GET['data']);
 
     if($dataType == 'agents'){
@@ -29,9 +28,8 @@
     else if ($dataType == 'hashtags') {
         $data = getHashtags();
     }
-
-    foreach($data as $value){
-        $response[] = $value;
+    else if ($dataType == 'departments'){
+        $data = getDepartments();
     }
 
-    echo json_encode($response);
+    echo json_encode($data);
