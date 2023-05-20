@@ -9,8 +9,8 @@
                 outputNoTickets();
             else{
                 foreach($tickets as $ticket){
-                    $status = $statuses[$ticket['status_id'] - 1];
-                    outputTicket($ticket, $status);
+                    $ticket['status'] = $statuses[$ticket['status_id'] - 1]['name'];
+                    outputTicket($ticket);
                 }
             }
 ?>
@@ -20,14 +20,14 @@
         return ob_get_clean();
     }
 
-    function outputTicket($ticket, $status){
+    function outputTicket($ticket){
 ?>  
         <li class="ticket">
             <ul>
                 <li><p>#<?=$ticket['id']?></p></li>
                 <li><p><?=$ticket['title']?></p></li>
                 <li><p><?=date('d-m-Y', $ticket['date'])?></p></li>
-                <li><p><?=$status['name']?></p></li>
+                <li><p><?=$ticket['status']?></p></li>
             </ul>
         </li>   
 <?php
@@ -42,9 +42,8 @@
 <?php
     }
 
-    function outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies, $statuses){
+    function outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies){
         ob_start();
-        $status = $statuses[$ticket['status_id'] - 1];
 ?>
         <div class="ticket-discussion">
             <a href="index.php"><img class="return" src="../icons/return.png" alt="return"/></a>
@@ -54,7 +53,7 @@
                         <h1>#<?=$ticket['id']?></h1>
                         <h1><?=$ticket['title']?></h1>
                     </div>
-                    <h1><?=$status['name']?></h1>
+                    <h1><?=$ticket['status']?></h1>
                 </div>
                 <div class="hashtags">
                     <?php foreach($ticketHashtags as $hashtag)

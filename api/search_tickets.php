@@ -24,7 +24,9 @@
     
     // re-format date before going to json
     $tickets = array_map(function($ticket){
+        $statuses = getStatuses();
         $ticket['date'] = date('d-m-Y', $ticket['date']);
+        $ticket['status'] = $statuses[$ticket['status_id'] - 1]['name'];
         return $ticket;
     }, $tickets);
 

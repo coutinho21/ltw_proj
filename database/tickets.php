@@ -66,7 +66,7 @@
 
     function getTicketsByDepartment($department){
         $db = getDatabaseConnection();
-        $stmt = $db->prepare('SELECT * FROM tickets 
+        $stmt = $db->prepare('SELECT tickets.* FROM tickets 
                               JOIN departments 
                               ON tickets.department_id = departments.id
                               WHERE departments.name = ?');
