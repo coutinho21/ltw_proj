@@ -98,9 +98,10 @@ body>header ul>li:last-child {
 /* End of navbar */
 /* Start of add new ticket and search bar */
 
-.add-and-search {
+#add-and-search {
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto;
     margin: 0;
     margin-top: 1.5em;
     margin-bottom: .5em;
@@ -111,6 +112,7 @@ body>header ul>li:last-child {
 
 #add-and-search>a {
     /* New ticket*/
+    grid-column: 1 / 2;
     color: #FFFFFF;
     background-color: #939391;
     font-size: 1em;
@@ -129,6 +131,7 @@ body>header ul>li:last-child {
 
 #add-and-search>input {
     /* search ticket */
+    grid-column: 2 / 3;
     font-size: .8em;
     font-weight: lighter;
     width: 35%;
@@ -143,6 +146,10 @@ body>header ul>li:last-child {
     padding: 1em;
     color: #939391;
     text-align: start;
+}
+
+#add-and-search>#filters-div {
+    grid-column: 3 / -1 ;
 }
 
 /* End of add new ticket and search bar */
@@ -381,7 +388,7 @@ body>header ul>li:last-child {
     grid-template-columns: 1fr 4fr;
 }
 
-.departments {
+.filter {
     grid-column: 1 / 2;
     display: flex;
     flex-direction: column;
@@ -399,7 +406,6 @@ body>header ul>li:last-child {
     flex-direction: column;
     text-align: center;
     text-justify: center;
-    justify-content: center;
     margin: 0 0 0 1em;
     padding: 1em;
 }
