@@ -1,5 +1,6 @@
 <?php
     require_once(__DIR__ . '/../database/faqs.php');
+    require_once(__DIR__ . '/../utilities/utilities.php');
 
     session_start();
 
@@ -8,8 +9,8 @@
         exit();
     }
 
-    $question = $_POST['question'];
-    $answer = $_POST['answer'];
+    $question = cleanInput($_POST['question']);
+    $answer = cleanInput($_POST['answer']);
 
     newFAQ($question, $answer);
     header('Location: ../pages/faqs.php');

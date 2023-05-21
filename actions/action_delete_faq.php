@@ -1,6 +1,7 @@
 <?php
     require_once(__DIR__ . '/../database/faqs.php');
-
+    require_once(__DIR__ . '/../utilities/utilities.php');
+    
     session_start();
 
     if(!isset($_SESSION['username'])){
@@ -8,7 +9,7 @@
         exit();
     }
 
-    $id = $_GET['id'];
+    $id = cleanInput($_GET['id']);
 
     deleteFAQ($id);
     header('Location: ../pages/faqs.php');

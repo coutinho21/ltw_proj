@@ -1,6 +1,7 @@
 <?php
     require_once(__DIR__ . '/../database/tickets.php');
     require_once(__DIR__ . '/../database/users.php');
+    require_once(__DIR__ . '/../utilities/utilities.php');
 
     session_start();
 
@@ -9,9 +10,9 @@
         exit();
     }
 
-    $ticket_id = $_POST['ticket_id'];
+    $ticket_id = cleanInput($_POST['ticket_id']);
     $username = $_SESSION['username'];
-    $reply = $_POST['reply'];
+    $reply = cleanInput($_POST['reply']);
 
     $user = getUser($username);
     $ticket = getTicket($ticket_id);
