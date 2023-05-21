@@ -168,16 +168,18 @@
             <h2>New ticket</h2>
             <form action="../actions/action_new_ticket.php" method="post">
                 <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
-                <input type="text" name="title" placeholder="Title" required/>
-                <select name="department">
+                <div class="title-department">
+                  <input type="text" name="title" placeholder="Title" required/>
+                  <select name="department">
 <?php
-                    foreach($departments as $department){
+                      foreach($departments as $department){
 ?>
-                        <option value="<?=$department['id']?>"><?=$department['name']?></option>
+                          <option value="<?=$department['id']?>"><?=$department['name']?></option>
 <?php
-                    }
+                      }
 ?>
-                </select>
+                  </select>
+                </div>
                 <textarea id="introduction" name="introduction" placeholder="Introduction" required></textarea>
                 <textarea id="description" name="description" placeholder="Description" required></textarea>
                 <button type="submit">Create</button>

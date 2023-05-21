@@ -13,10 +13,11 @@
 .ticket-discussion {
     background-color: white;
     grid-column: 2 / -1;
-    margin: 0 0 1em 1.65em;
+    margin: 0 0em 1em 1.65em;
     min-height: 600px;
     display: flex;
     flex-direction: column;
+    border-radius: 4px;
 }
 
 .ticket-discussion a {
