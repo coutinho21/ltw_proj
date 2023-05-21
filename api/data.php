@@ -28,8 +28,11 @@
     else if ($dataType == 'hashtags') {
         $data = getHashtags();
     }
-    else if ($dataType == 'departments'){
+    else if ($dataType == 'departments') {
         $data = getDepartments();
+    }
+    else if ($dataType == 'users_departments') {
+        $data = getUsersDepartments();
     }
 
     echo json_encode($data);

@@ -42,7 +42,7 @@
 <?php
     }
 
-    function outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies, $statuses, $role){
+    function outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies, $statuses, $departments, $role){
         ob_start();
 ?>
         <div class="ticket-discussion">
@@ -53,7 +53,51 @@
                         <h1 id="ticket-id">#<?=$ticket['id']?></h1>
                         <h1><?=$ticket['title']?></h1>
                     </div>
-                    <h1><?=$ticket['status']?></h1>
+<?php 
+                    if($role == 'client'){ 
+?>
+                        <h1><?=$ticket['status']?></h1>
+<?php               
+                    } 
+                    else { 
+?>
+                        <div class="ticket-manage-status-department">
+                            <select id="ticket-status">
+<?php 
+                            foreach($statuses as $status){ 
+                                if($status['name'] == $ticket['status']){
+?>                                  
+                                    <option selected value="<?=$status['id']?>"><?=$status['name']?></option>
+<?php
+                                }
+                                else {
+?>
+                                    <option value="<?=$status['id']?>"><?=$status['name']?></option>
+<?php
+                                }
+                            }
+?>
+                            </select>
+                            <select id="ticket-department">
+<?php 
+                            foreach($departments as $department){ 
+                                if($department['id'] == $ticket['department_id']){
+?>                                  
+                                    <option selected value="<?=$department['id']?>"><?=$department['name']?></option>
+<?php
+                                }
+                                else {
+?>
+                                    <option value="<?=$department['id']?>"><?=$department['name']?></option>
+<?php
+                                }
+                            }
+?>
+                            </select>
+                        </div>
+<?php 
+                    } 
+?>
                 </div>
                 <div class="hashtags">
                     <?php foreach($ticketHashtags as $hashtag){
@@ -70,19 +114,25 @@
                 </div>
                 <div class="ticket-footer">
                     <h4>Created by: <a href="../pages/profile.php?username=<?=$ticket['client']?>"><?=$ticket['client']?></a></h4>
-                    <h4>Assigned to: <a href="../pages/profile.php?username=<?=$ticket['agent']?>"><?=$ticket['agent']?></a></h4>
+                    <h4>Assigned to: <a id="assigned-agent" href="../pages/profile.php?username=<?=$ticket['agent']?>"><?=$ticket['agent']?></a></h4>
                 </div>
             </div>
             <div class="ticket-replies">
-                <?php foreach($ticketReplies as $reply)
-                    outputTicketReply($reply);
-                ?>
+<?php 
+            foreach($ticketReplies as $reply){
+                outputTicketReply($reply);
+            }
+            if($ticket['status'] != 'closed') {
+?>
                 <form action="../actions/action_ticket_reply.php" method="post" class="ticket-reply-form">
                     <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                     <input type="hidden" name="ticket_id" value="<?=$ticket['id']?>"/>
                     <textarea name="reply" placeholder="Reply to this ticket..."></textarea>
                     <button class="ticket-reply-post" type="submit">Reply</button>
                 </form>
+<?php
+            }
+?>
             </div>
         </div>
 <?php
