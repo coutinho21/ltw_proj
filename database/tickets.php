@@ -121,4 +121,10 @@
         $stmt = $db->prepare('INSERT INTO tickets_hashtags (ticket_id, hashtag_id) VALUES (?, ?)');
         $stmt->execute(array($ticket_id, $hashtag_id));
     }
+
+    function updateTicketDepartment($ticket_id, $department_id){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('UPDATE tickets SET department_id = ? WHERE id = ?');
+        $stmt->execute(array($department_id, $ticket_id));
+    }
 ?>

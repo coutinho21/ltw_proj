@@ -83,16 +83,16 @@ function addHashtag() {
 }
 
 function changeStatus() {
-    const status = document.getElementById('ticket-status');
+    const ticketStatus = document.getElementById('ticket-status');
 
-    if(status) {
-        status.addEventListener('change', function() { 
+    if(ticketStatus) {
+        ticketStatus.addEventListener('change', function() { 
             const ticketId = document.getElementById('ticket-id').textContent.substring(1);
             const statusId = document.getElementById('ticket-status').value;
-            const status = document.getElementById('ticket-status').options[document.getElementById('ticket-status').selectedIndex].text;
             const csrf = document.getElementById('csrf').textContent;
             const departmentId = document.getElementById('ticket-department').value;
-            
+            const status = document.getElementById('ticket-status').options[document.getElementById('ticket-status').selectedIndex].text;
+
             if(status !== 'assigned') {
                 const request = new XMLHttpRequest();
                 request.open('post', '../actions/action_change_ticket_status.php', true);
@@ -204,8 +204,28 @@ function assignAgent() {
     }
 }
 
+function changeDepartment() {
+    const department = document.getElementById('ticket-department');
+
+    if(department) {
+        department.addEventListener('change', function() { 
+            const ticketId = document.getElementById('ticket-id').textContent.substring(1);
+            const csrf = document.getElementById('csrf').textContent;
+            const departmentId = department.value;
+            const agent = document.getElementById('assigned-agent').textContent;
+
+            const request = new XMLHttpRequest();
+            request.open('post', '../actions/action_change_ticket_department.php', true);
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            request.send(encodeForAjax({ticketId: ticketId, departmentId: departmentId, agent: agent, csrf: csrf}));
+            window.location.reload();
+        });
+    }
+}
+
 openTicket();
 addHashtag();
 closeAddHashtag();
 changeStatus();
 closeOpenAssignAgent();
+changeDepartment();

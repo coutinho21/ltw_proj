@@ -29,3 +29,4 @@
     }
 
     header('Location: ../pages/ticket.php?id=' . $ticketId);
+?>
