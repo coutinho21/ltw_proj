@@ -23,7 +23,7 @@
 
     function outputFAQ($faq, $role){
 ?>
-        <div class="faq">
+        <div id="faq-<?=$faq['id']?>" class="faq">
             <p class="faq-id" style="display: none"><?=$faq['id']?></p>
             <div class="title-options">
                 <h3 class="faq-question"><?=$faq['question']?></h3>

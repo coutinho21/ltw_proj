@@ -223,9 +223,81 @@ function changeDepartment() {
     }
 }
 
+function closeOpenAnswerWithFAQ() {
+    document.addEventListener("click", (e) => {
+        const answerWithFAQ = document.getElementById("answer-with-faq");
+
+        if (answerWithFAQ) {
+            if (answerWithFAQ.contains(e.target)) {
+                return;
+            }
+            answerWithFAQ.remove();
+            window.location.reload();
+        }   
+    });
+}
+
+function openAnswerWithFAQ() {
+    const answerWithFAQButton = document.getElementById('answer-with-faq-button');
+
+    if(answerWithFAQButton) {
+        answerWithFAQButton.addEventListener('click', async function(e) {
+            const responseFAQ = await fetch('../api/data.php?data=faqs');
+            const faqs = await responseFAQ.json();
+
+            const main = document.querySelector('.ticket');
+
+            // answer with faq div
+            const answerWithFAQDiv = document.createElement('div');
+            answerWithFAQDiv.id = 'answer-with-faq';
+            answerWithFAQDiv.style.top = (parseInt(e.clientY) + parseInt(window.scrollY)).toString() + "px";
+            answerWithFAQDiv.style.left = (parseInt(e.clientX) + parseInt(window.scrollX) - 100).toString() + "px";
+            
+            // answer with faq title
+            const answerWithFAQTitle = document.createElement('h4');
+            answerWithFAQTitle.textContent = 'Answer with FAQ';
+            answerWithFAQDiv.appendChild(answerWithFAQTitle);
+
+            // answer with faq select
+            const answerWithFAQSelect = document.createElement('select');
+            answerWithFAQSelect.id = 'faq-id';
+            faqs.forEach(faq => {
+                const answerWithFAQOption = document.createElement('option');
+                answerWithFAQOption.value = faq.id;
+                answerWithFAQOption.textContent = faq.question;
+                answerWithFAQSelect.appendChild(answerWithFAQOption);
+            });
+            answerWithFAQDiv.appendChild(answerWithFAQSelect);
+
+            // answer with faq submit
+            const answerWithFAQSubmit = document.createElement('button');
+            answerWithFAQSubmit.id = 'answer-with-faq-submit';
+            answerWithFAQSubmit.textContent = 'Submit';
+            answerWithFAQSubmit.addEventListener('click', answerWithFAQ);
+            answerWithFAQDiv.appendChild(answerWithFAQSubmit);
+
+            main.appendChild(answerWithFAQDiv);
+        });
+    }
+}
+
+function answerWithFAQ() {
+    const ticketId = document.getElementById('ticket-id').textContent.substring(1);
+    const csrf = document.getElementById('csrf').textContent;
+    const faqId = document.getElementById('faq-id').value;
+
+    const request = new XMLHttpRequest();
+    request.open('post', '../actions/action_answer_with_faq.php', true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.send(encodeForAjax({ticketId: ticketId, faqId: faqId, csrf: csrf}));
+    window.location.reload();
+}
+
 openTicket();
 addHashtag();
 closeAddHashtag();
 changeStatus();
 closeOpenAssignAgent();
 changeDepartment();
+closeOpenAnswerWithFAQ();
+openAnswerWithFAQ();

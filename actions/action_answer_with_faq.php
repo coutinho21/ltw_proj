@@ -15,17 +15,18 @@
         exit();
     }
 
-    $ticket_id = $_POST['ticket_id'];
+    $ticket_id = cleanInput($_POST['ticketId']);
+    $faq_id = cleanInput($_POST['faqId']);
     $username = $_SESSION['username'];
-    $reply = cleanInput($_POST['reply']);
-
     $user = getUser($username);
     $ticket = getTicket($ticket_id);
 
-    // only the client that created this ticket, the agent that was assigned
-    // to it and admins can add comments to the discussion
-    if(($user['role'] == 'client' && $ticket['client'] != $username)
-        || ($user['role'] == 'agent' && $ticket['agent'] != $username)){
+    $reply = 'This question has already been answered, 
+    please check out <a href="../pages/faqs.php#faq-' . $faq_id . '">this FAQ</a>';
+
+    // only the agent that was assigned to this ticket
+    // and admins can answer with a FAQ
+    if($user['role'] == 'agent' && $ticket['agent'] != $username){
         header('Location: ../pages/ticket.php?error=6&id=' . $ticket_id);
         exit();
     }
