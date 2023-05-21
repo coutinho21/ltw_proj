@@ -388,17 +388,6 @@ body>header ul>li:last-child {
     grid-template-columns: 1fr 4fr;
 }
 
-.filter {
-    grid-column: 1 / 2;
-    display: flex;
-    flex-direction: column;
-    font-size: 1em;
-    width: 90%;
-    margin: .55em;
-    padding: .5em;
-    border-radius: 4px;
-}
-
 .departments {
     background-color: #fff;
     border-radius: 3px;
@@ -419,6 +408,56 @@ body>header ul>li:last-child {
 
 .departments>.active {
     background-color: #4A4A4A;
+}
+
+#add-new-department{
+    margin: 1em 0 1em 1em;
+    font-size: small;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#new-department {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border: 1px solid #4A4A4A;
+    border-radius: 5px;
+}
+
+#new-department .department-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#new-department h2 {
+    padding: 1em;
+    text-align: center;
+}
+
+#new-department input {
+    width: 80%;
+    height: 2em;
+    margin: 0.5em;
+}
+
+#new-department button {
+    width: 80px;
+    background-color: #4A4A4A;
+    color: white;
+    border: none;
+    padding: 0.5em;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 .tickets-list {

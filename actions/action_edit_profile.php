@@ -34,11 +34,8 @@
         if($user['role'] == 'client'){
             updateUser($username, $newUsername, $newName, $newEmail);
         }
-        else if($user['role'] == 'agent'){
+        else if($user['role'] != 'agent'){
             updateUserWithDepartments($username, $newUsername, $newName, $newEmail, $departments);
-        }
-        else if($user['role'] == 'admin'){
-            updateEveryField($username, $newUsername, $newName, $newEmail, $newRole, $departments);
         }
         header('Location: ../pages/profile.php');
         exit();

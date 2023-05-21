@@ -50,6 +50,12 @@
         return $stmt->fetchAll();
     }
 
+    function newDepartment($newDepartment){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('INSERT INTO departments (name) VALUES (?)');
+        $stmt->execute(array($newDepartment));
+    }
+
     function newTicket($user, $department, $title, $introduction, $description){
         $db = getDatabaseConnection();
         $stmt = $db->prepare('INSERT INTO tickets (client, department_id, title, introduction, description, date, status_id) VALUES (?, ?, ?, ?, ?, ?, ?)');

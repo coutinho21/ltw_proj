@@ -21,7 +21,7 @@ function searchTickets() {
 }
 
 function filterTicketsByDepartments() {
-    const departments = document.querySelectorAll('.departments > li');
+    const departments = Array.from(document.querySelectorAll('.departments > li'));
 
     if (departments) {
         departments.forEach(department => {
