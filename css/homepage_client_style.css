@@ -195,7 +195,7 @@ body>header ul>li:last-child {
 #filters>ul>li {
     padding: 1em;
     justify-self: left;
-    cursor:
+    cursor: pointer;
 }
 
 #filters>ul>li>p {
