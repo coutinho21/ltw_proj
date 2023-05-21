@@ -12,6 +12,7 @@
 
     $user = getUser($_SESSION['username']);
     $visiting = false;
+    
     if (isset($_GET['username'])) {
         $user = getUser($_GET['username']);
         $visiting = true;

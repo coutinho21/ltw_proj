@@ -104,8 +104,6 @@
         $stmt->execute(array($newUsername, $username));
         $stmt = $db->prepare('UPDATE users_departments SET user = ? WHERE user = ?');
         $stmt->execute(array($newUsername, $username));
-        $stmt = $db->prepare('UPDATE ticket_history SET user = ? WHERE user = ?');
-        $stmt->execute(array($newUsername, $username));
         $stmt = $db->prepare('UPDATE ticket_replies SET user = ? WHERE user = ?');
         $stmt->execute(array($newUsername, $username));
     }
