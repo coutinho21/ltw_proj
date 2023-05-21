@@ -1,13 +1,16 @@
 .new-ticket {
+    display: flex;
+    flex-direction: column;
     border-radius: 4px;
     background-color: white;
     margin: .55em;
-    margin-left: 1.25em;
-    height: 528px;
+    margin: 0 0em 1em 1.65em;
+    justify-content: space-around;
 }
 
 .new-ticket > form {
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin: .5em;
     justify-content: space-between;
 }
@@ -16,6 +19,13 @@
     margin: 1em 1em 0 1em;
 }
 
+.title-department{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.new-ticket > form > .title-department input,
 .new-ticket > form > input, 
 .new-ticket > form > textarea {
     border-radius: 6px;
@@ -26,7 +36,7 @@
     width: fit-content;
 }
 
-.new-ticket > form > select{
+.new-ticket > form > .title-department > select{
     border: none;
     border-radius: 5px;
     box-shadow: 1px 1px 2px 2px grey;
@@ -36,12 +46,11 @@
     width: fit-content;
 }
 
-.new-ticket > form > input {
-    width: 70%;
+.new-ticket >  form > .title-department > input {
     text-align: start;
 }
-.new-ticket > form > select {
-    width: 20%;
+.new-ticket > form > .title-department > select {
+    cursor: pointer;
     margin-left: 3em;
     text-align: center;
 }
@@ -59,11 +68,11 @@
     border-radius: 8px;
     border: none;
     width: fit-content;
-    margin: 1em 1em 1em 80em;
+    margin: 1em;
     padding: 1em 2em;
+    align-self: flex-end;
 }
 .new-ticket > form > button:hover {
     background-color: #c1c1c1;
-    margin: 1em 1em 1em 79.8em;
     padding: 1.1em 2.2em;
 }
