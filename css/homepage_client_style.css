@@ -167,6 +167,7 @@ body > header ul > li:last-child {
     justify-content: center;
     margin: 0;
     padding: 0;
+    min-width: 12.2em;
 }
 
 .departments > li {
@@ -175,9 +176,9 @@ body > header ul > li:last-child {
     margin: space-around;
     list-style-type: none;
 }
-
-.departments > .active{
-    background-color: #4A4A4A;
+.departments > li:hover, 
+.departments > .active {
+    background-color: #b7b7b7;
 }
 
 .tickets-list {
@@ -210,6 +211,7 @@ body > header ul > li:last-child {
     height: 4em;
     gap: 18em;
     padding: 0;     
+    justify-items: center;
 }
 
 .tickets-list > ul > li > ul > li {
@@ -228,7 +230,17 @@ body > header ul > li:last-child {
     padding-right: 10px;
 }
 .tickets-list > ul > li > ul > li:nth-child(2) {
-    width: 230px;
+    width: 250px;
+    justify-items: center;
+}
+.tickets-list > ul > li > ul > li:nth-child(2) > p {
+    text-align: center;
+    --max-lines: 2;
+        
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--max-lines);
 }
 .tickets-list > ul > li > ul > li:nth-child(4) {
     padding-left: 10px;
@@ -258,30 +270,36 @@ body > footer {
 
 /* ------------- responsive design -------------- */
 @media (max-width: 70em) {
+    .tickets-list p {
+        margin: 5px;
+    }
     .tickets-list > ul {
         margin-left: 0;
         margin-bottom: 0;
 
-        display: flex;
+        display: flex; 
         flex-direction: row;
         flex-wrap: wrap;
+        height: 500px;
+        overflow-y: scroll;
     }
     .tickets-list > ul > li {
         background-color: #fff;
-        margin: .65em;
-        height: 25em;
-        width: fit-content;
+        margin: 8.8px;
+        height: 180px;          /* 180px */
+        width: 300px;
         border-radius: 4px;
     }
     
     .tickets-list > ul > li > ul {
         display: flex;
-        /* flex-direction: row; */   /* como estava */
+        /* flex-direction: row;   /* como estava */
         flex-direction: column;
-        /* gap: 18em; */             /* como estava */
-        gap: 20px;
+        /* gap: 18em;             como estava */
+        gap: 1px;                  /* 1px*/
         padding: 0;     
         margin: 1em 0;
+        align-items: center;
     } 
     
     .tickets-list > ul > li > ul > li {
@@ -290,6 +308,10 @@ body > footer {
     }
     .tickets-list > ul > li > ul > li:nth-child(1) {
         padding: 6.4px 10px;
+    }
+    .tickets-list > ul > li > ul > li:nth-child(2) {
+        padding-top: 0;
+        max-height: 30px;
     }
     .tickets-list > ul > li > ul > li:nth-child(4) {
         padding: 6.4px 10px;

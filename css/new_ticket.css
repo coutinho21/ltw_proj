@@ -79,6 +79,7 @@
     .main-content {
         display: block;
         width: auto;
+        height: auto;
     }   
     .filter {
         display: flex;
@@ -114,7 +115,7 @@
         display: inline;
         margin: 1em; 
         padding: 1em;
-        width: 30%;
+        width: 32%;
         margin-left: 1em;
         text-align: center;
     }
