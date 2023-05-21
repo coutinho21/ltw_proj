@@ -158,6 +158,7 @@ body>header ul>li:last-child {
 #filters-button {
     border: none;
     background: none;
+    cursor: pointer;
 }
 
 #filters-button>img {
@@ -194,6 +195,7 @@ body>header ul>li:last-child {
 #filters>ul>li {
     padding: 1em;
     justify-self: left;
+    cursor:
 }
 
 #filters>ul>li>p {
@@ -415,13 +417,23 @@ body>header ul>li:last-child {
     background-color: #fff;
     border-radius: 3px;
     text-align: center;
-    text-justify: start;
-    margin: space-around;
     list-style-type: none;
+    cursor: pointer;
+}
+.departments>li:hover{
+    background-color:#939391;
+    border: solid 1px #4A4A4A;
+    color:#fff;
 }
 
 .departments>.active {
     background-color: #4A4A4A;
+    color: white;
+}
+
+.departments>.active:hover{
+    background-color: #4A4A4A;
+    color: white;
 }
 
 .tickets-list {
@@ -448,6 +460,10 @@ body>header ul>li:last-child {
     border-radius: 4px;
 }
 
+.tickets-list>ul>li:hover{
+    background-color: #f1efef;
+}
+
 .tickets-list>ul>li:first-child {
     margin-top:0;
 }
@@ -466,13 +482,17 @@ body>header ul>li:last-child {
     padding: .5em;
     align-items: center;
     justify-items: center;
+    cursor: pointer;
 }
 
 .tickets-list>ul>li>ul p {
-    text-align: center;
+    text-align: left;
     text-justify: center;
     padding: 0;
     width: auto;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tickets-list>ul>li>ul li:first-child{
