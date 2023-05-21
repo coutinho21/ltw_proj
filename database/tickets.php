@@ -41,6 +41,7 @@
         $db = getDatabaseConnection();
         $stmt = $db->prepare('INSERT INTO ticket_replies (ticket_id, user, reply, reply_date) VALUES (?, ?, ?, ?)');
         $stmt->execute(array($ticket_id, $username, $reply, time()));
+        return $db->lastInsertId();
     }
 
     function getDepartments(){

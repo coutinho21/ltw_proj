@@ -23,6 +23,11 @@ function weakPassword(){
     alert('Password is too weak!');
 }
 
+// error 6
+function cantReply(){
+    alerr('You can\'t reply to this ticket!');
+}
+
 const urlParams = new URLSearchParams(window.location.search);
 const error = urlParams.get('error');
 switch(error){
@@ -40,6 +45,9 @@ switch(error){
         break;
     case '5':
         weakPassword();
+        break;
+    case '6':
+        cantReply();
         break;
     default:
         break;

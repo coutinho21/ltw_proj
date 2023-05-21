@@ -212,7 +212,19 @@ function deleteFAQ(id) {
     window.location.href = "../actions/action_delete_faq.php?id=" + id;
 }
 
+function openFAQThroughTicketReply(){
+    if(window.location.href.includes("faq-")){
+        const faqId = window.location.href.at(-1);
+        const faq = document.getElementById("faq-" + faqId);
+        const answer = faq.querySelector("#faq-" + faqId + " p:last-child");
+
+        faq.classList.toggle("open");
+        answer.classList.toggle("show");
+    }
+}
+
 faqsDisplay();
 newFAQ();
 openOptions();
 closeOptions();
+openFAQThroughTicketReply();

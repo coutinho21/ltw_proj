@@ -128,6 +128,13 @@
                     <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                     <input type="hidden" name="ticket_id" value="<?=$ticket['id']?>"/>
                     <textarea name="reply" placeholder="Reply to this ticket..."></textarea>
+<?php
+                    if($role != 'client'){
+?>
+                        <p id="answer-with-faq-button">Answer with FAQ</p>
+<?php
+                    }
+?>
                     <button class="ticket-reply-post" type="submit">Reply</button>
                 </form>
 <?php
@@ -149,7 +156,7 @@
 
     function outputTicketReply($reply){
 ?>
-        <div class="ticket-reply">
+        <div id="reply-<?=$reply['id']?>" class="ticket-reply">
             <div class="ticket-reply-header">
                 <h4><a href="../pages/profile.php?username=<?=$reply['user']?>"><?=$reply['user']?></a></h4>
                 <h4><?=date('d-m-Y', $reply['reply_date'])?></h4>
