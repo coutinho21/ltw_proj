@@ -15,13 +15,6 @@
         return $stmt->fetch();
     }
 
-    function getTicketHistory($id){
-        $db = getDatabaseConnection();
-        $stmt = $db->prepare('SELECT * FROM ticket_history WHERE ticket_id = ?');
-        $stmt->execute(array($id));
-        return $stmt->fetch();
-    }
-
     function getTicketHashtags($id){
         $db = getDatabaseConnection();
         $stmt = $db->prepare('SELECT * FROM hashtags JOIN tickets_hashtags 

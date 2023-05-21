@@ -13,7 +13,6 @@
     
     $ticket_id = $_GET['id'];
     $ticket = getTicket($ticket_id);
-    $ticketHistory = getTicketHistory($ticket_id);
     $ticketHashtags = getTicketHashtags($ticket_id);
     $ticketReplies = getTicketReplies($ticket_id);
     $departments = getDepartments();
@@ -22,6 +21,6 @@
     $ticket['status'] = $statuses[$ticket['status_id'] - 1]['name'];
 
     outputHeader();
-    outputAddSearchFilter(outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies, $statuses, $departments, $user['role']), $departments, $user['role']);
+    outputAddSearchFilter(outputTicketDiscussion($ticket, $ticketHashtags, $ticketReplies, $statuses, $departments, $user['role']), $departments, $user['role']);
     outputFooter();
 ?>
