@@ -14,19 +14,25 @@
             </div>
 <?php
             foreach($faqs as $faq)
-                outputFAQ($faq);
+                outputFAQ($faq, $role);
 ?>
         </main>
 <?php
     }
 
-    function outputFAQ($faq){
+    function outputFAQ($faq, $role){
 ?>
         <div class="faq">
             <p class="faq-id" style="display: none"><?=$faq['id']?></p>
             <div class="title-options">
                 <h3 class="faq-question"><?=$faq['question']?></h3>
+<?php
+                if($role != 'client'){
+?>
                 <img class="faq-options" src="../icons/dots.png" alt="options"/>
+<?php
+                }
+?>
             </div>
             <p class="faq-answer"><?=$faq['answer']?></p>
         </div>
