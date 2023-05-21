@@ -51,5 +51,4 @@
         updateEveryField($username, $newUsername, $newName, $newEmail, $newRole, $departments);
     }
     header('Location: ../pages/profile.php?username=' . $newUsername);
-    exit();
 ?>

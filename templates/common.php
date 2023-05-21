@@ -14,9 +14,10 @@
             <link rel="stylesheet" href="../css/profile.css">
             <link rel="stylesheet" href="../css/new_ticket.css">
             <link rel="stylesheet" href="../css/faqs.css">
-            <script type="module" src="../javascript/script.js" defer></script>
+            <script type="module" src="../javascript/tickets.js" defer></script>
             <script type="module" src="../javascript/filters.js" defer></script>
             <script type="module" src="../javascript/edit_profile.js" defer></script>
+            <script type="module" src="../javascript/faqs.js" defer></script>
             <script type="module" src="../errors/errors.js" defer></script>
         </head>
         <body>

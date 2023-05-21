@@ -1,5 +1,5 @@
 import { buildTicket, isArray } from '../utilities/utilities.js';
-import { openTicket } from './script.js';
+import { openTicket } from './tickets.js';
 
 function searchTickets() {
     const search = document.querySelector('.search-ticket');

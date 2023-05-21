@@ -25,5 +25,5 @@
     }
 
     addTicketReply($ticket_id, $username, $reply, time());
-    header('Location: ../pages/ticket.php?id=' . $ticket_id)
+    header('Location: ../pages/ticket.php?id=' . $ticket_id);
 ?>

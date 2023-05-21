@@ -11,8 +11,25 @@
     justify-content: space-between;
 }
 
+.faqs .title-new-faq {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .faqs h2 {
     margin-top: 0%;
+}
+
+.faqs .title-new-faq button {
+    background-color: #4A4A4A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 .faq {
@@ -20,6 +37,13 @@
     border-radius: 4px;
     background: #fff;
     margin: 10px 0;
+}
+
+.faq .title-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .faq h3 {
@@ -33,6 +57,32 @@
     cursor: pointer;
 }
 
+.faq .faq-options {
+    width: 30px;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    padding: 1em;
+}
+
+.faq .options-div {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq .options-div button {
+    width: 80px;
+    background-color: #4A4A4A;
+    color: white;
+    border: none;
+    padding: 0.5em;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+}
+
 .faq p {
     font-size: 15px;
     font-weight: 300;
@@ -42,4 +92,106 @@
 
 .faq.open p.show {
     display: block;
+}
+
+#new-faq {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    background-color: #fff;
+    border: 1px solid #4A4A4A;
+    border-radius: 5px;
+}
+
+#new-faq .faq-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#new-faq input {
+    width: 80%;
+    height: 2em;
+    margin: 0.5em;
+}
+
+#new-faq textarea {
+    width: 80%;
+    height: 5em;
+    margin: 0.5em;
+}
+
+#new-faq .faq-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 70%;
+}
+
+#new-faq button {
+    width: 5em;
+    height: 2em;
+    margin: 0.5em 0;
+    background-color: #D9D9D9;
+    border-radius: 7px;
+    color: black;
+    border: none;
+    outline: none;
+}
+
+.edit-faq {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    background-color: #fff;
+    border: 1px solid #4A4A4A;
+    border-radius: 5px;
+}
+
+.edit-faq .faq-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.edit-faq input {
+    width: 80%;
+    height: 2em;
+    margin: 0.5em;
+}
+
+.edit-faq textarea {
+    width: 80%;
+    height: 5em;
+    margin: 0.5em;
+}
+
+.edit-faq .edit-faq-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 70%;
+}
+
+.edit-faq button {
+    width: 5em;
+    height: 2em;
+    margin: 0.5em 0;
+    background-color: #D9D9D9;
+    border-radius: 7px;
+    color: black;
+    border: none;
+    outline: none;
 }
