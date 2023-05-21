@@ -74,6 +74,7 @@
                     outputTicketReply($reply);
                 ?>
                 <form action="../actions/action_ticket_reply.php" method="post" class="ticket-reply-form">
+                    <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                     <input type="hidden" name="ticket_id" value="<?=$ticket['id']?>"/>
                     <textarea name="reply" placeholder="Reply to this ticket..."></textarea>
                     <button class="ticket-reply-post" type="submit">Reply</button>
@@ -112,6 +113,7 @@
         <div class="new-ticket">
             <h2>New ticket</h2>
             <form action="../actions/action_new_ticket.php" method="post">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <input type="text" name="title" placeholder="Title" required/>
                 <select name="department">
 <?php

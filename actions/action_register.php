@@ -33,6 +33,7 @@
 
     addUser($name, $username, $email, $password);
     $_SESSION['username'] = $username;
+    $_SESSION['csrf'] = generateToken();
     
     header('Location: ../pages/register.php');
 ?>

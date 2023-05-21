@@ -9,8 +9,7 @@
     if(!isset($_SESSION['username']))
         header('Location: index.php');
     
-    $username = $_SESSION['username'];
-    $user = getUser($username);
+    $user = getUser($_SESSION['username']);
     $faqs = getFAQs();
 
     outputHeader();

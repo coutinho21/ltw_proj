@@ -10,6 +10,11 @@
         exit();
     }
 
+    if ($_SESSION['csrf'] !== $_POST['csrf']) {
+        header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+        exit();
+    }
+
     $visiting = $_POST['visiting'];
     $username = cleanInput($_POST['user']);
     $newUsername = cleanInput($_POST['new_username']);

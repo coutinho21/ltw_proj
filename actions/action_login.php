@@ -19,5 +19,6 @@
     }
         
     $_SESSION['username'] = $user['username'];
+    $_SESSION['csrf'] = generateToken();
     header('Location: ../index.php');
 ?>

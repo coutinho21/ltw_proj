@@ -10,7 +10,12 @@
         exit();
     }
 
-    $ticket_id = cleanInput($_POST['ticket_id']);
+    if ($_SESSION['csrf'] !== $_POST['csrf']) {
+        header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+        exit();
+    }
+
+    $ticket_id = $_POST['ticket_id'];
     $username = $_SESSION['username'];
     $reply = cleanInput($_POST['reply']);
 

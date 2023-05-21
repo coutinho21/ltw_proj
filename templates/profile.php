@@ -109,6 +109,7 @@
     <main class="edit-profile">
         <h1>Edit profile</h1>
         <form id="edit-profile-form" class="edit-profile-form" method="post" action="../actions/action_edit_profile.php">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
             <input type="hidden" name="visiting" value="<?=$visiting?>"></input>
             <input type="hidden" name="user" value="<?=$user['username']?>"></input>
             <label>name<br/>
@@ -167,6 +168,7 @@
         <main class="change-password">
             <h1>Change password</h1>
             <form class="change-password-form" method="post" action="../actions/action_change_password.php">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>"></input>
                 <input type="hidden" name="user" value="<?=$user['username']?>"></input>
                 <input type="hidden" name="visiting" value="<?=$visiting?>"></input>
                 <input type="hidden" name="user_email" value="<?=$user['email']?>"></input>

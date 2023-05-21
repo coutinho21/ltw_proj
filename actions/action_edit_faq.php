@@ -9,6 +9,11 @@
         exit();
     }
 
+    if ($_SESSION['csrf'] !== $_POST['csrf']) {
+        header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+        exit();
+    }
+
     $id = cleanInput($_POST['id']);
     $question = cleanInput($_POST['question']);
     $answer = cleanInput($_POST['answer']);

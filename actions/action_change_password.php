@@ -9,8 +9,13 @@
         exit();
     }
 
+    if ($_SESSION['csrf'] !== $_POST['csrf']) {
+        header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+        exit();
+    }
+
     $visiting = $_POST['visiting'];
-    $email = cleanInput($_POST['user_email']);
+    $email = $_POST['user_email'];
     $currentPassword = cleanInput($_POST['current_password']);
     $newPassword = cleanInput($_POST['new_password']);
     $confirmPassword = cleanInput($_POST['confirm_new_password']);
