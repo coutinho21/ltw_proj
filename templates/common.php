@@ -18,6 +18,7 @@
             <script type="module" src="../javascript/filters.js" defer></script>
             <script type="module" src="../javascript/edit_profile.js" defer></script>
             <script type="module" src="../javascript/faqs.js" defer></script>
+            <script type="module" src="../javascript/departments.js" defer></script>
             <script type="module" src="../errors/errors.js" defer></script>
         </head>
         <body>
@@ -51,18 +52,35 @@
         <nav id="add-and-search">
             <a href="../pages/new_ticket.php">New ticket</a>
             <input name="search_ticket" placeholder="Search ticket" class="search-ticket"/>
-            <?php if($role != 'client') { ?>
+<?php 
+            if($role != 'client') { 
+?>
                 <div id="filters-div">
                     <button type="button" id="filters-button"><img src="../icons/filter.png" alt="filter"/></button>
                 </div>
-            <?php }?>
+<?php 
+            }
+?>
         </nav>
         <main class="main-content">
-            <ul class="departments">
-                <?php foreach($departments as $department){ ?>
-                    <li><p><?=$department['name']?></p></li>
-                <?php } ?>
-            </ul>
+            <div class="departments-list">
+                <ul class="departments">
+<?php 
+                    foreach($departments as $department){ 
+?>
+                        <li><p><?=$department['name']?></p></li>
+<?php 
+                    } 
+?>
+                </ul>
+<?php
+                if($role == 'admin'){
+?>
+                    <p id="add-new-department">Add new department</p>
+<?php 
+                } 
+?>
+            </div>
             <?=$content?>
         </main>
 <?php
