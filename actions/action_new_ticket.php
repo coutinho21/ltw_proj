@@ -15,5 +15,5 @@
     $description = $_POST['description'];
 
     $ticket_id = newTicket($username, $department, $title, $introduction, $description);
-    header('Location: ../pages/ticket.php?id=' . $ticket_id)
+    header('Location: ../pages/ticket.php?id=' . $ticket_id);
 ?>
