@@ -100,12 +100,11 @@ body>header ul>li:last-child {
 
 #add-and-search {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: auto;
-    margin: 0;
+    margin: 2em;
     margin-top: 1.5em;
-    margin-bottom: .5em;
-    padding: .2em;
+    margin-bottom: 1.5em;
     align-items: center;
     justify-content: space-between;
 }
@@ -117,7 +116,7 @@ body>header ul>li:last-child {
     background-color: #939391;
     font-size: 1em;
     font-weight: lighter;
-    margin: 0 1em 0 2em;
+    margin: 0 2em 0 2em;
     padding: .4em 1em;
     text-align: center;
     border-style: none;
@@ -134,12 +133,12 @@ body>header ul>li:last-child {
     grid-column: 2 / 3;
     font-size: .8em;
     font-weight: lighter;
-    width: 35%;
+    width: 50%;
     padding: .6em 1.2em;
     border-style: none;
     border-radius: 4px;
     background-color: white;
-    margin-left: 1em;
+    margin-left: 2em;
 }
 
 #add-and-search>input::placeholder {
@@ -150,6 +149,7 @@ body>header ul>li:last-child {
 
 #add-and-search>#filters-div {
     grid-column: 3 / -1 ;
+    justify-self: end;
 }
 
 /* End of add new ticket and search bar */
@@ -158,6 +158,7 @@ body>header ul>li:last-child {
 #filters-button {
     border: none;
     background: none;
+    cursor: pointer;
 }
 
 #filters-button>img {
@@ -194,6 +195,7 @@ body>header ul>li:last-child {
 #filters>ul>li {
     padding: 1em;
     justify-self: left;
+    cursor: pointer;
 }
 
 #filters>ul>li>p {
@@ -386,28 +388,41 @@ body>header ul>li:last-child {
 .main-content {
     display: grid;
     grid-template-columns: 1fr 4fr;
+    margin: 0 2em 2em 2em;
 }
 
 .departments {
-    background-color: #fff;
-    border-radius: 3px;
     display: flex;
     flex-direction: column;
     text-align: center;
     text-justify: center;
-    margin: 0 0 0 1em;
-    padding: 1em;
+    margin: 0;
+    padding:0;
+    min-width: 120px;
 }
 
+
 .departments>li {
+    background-color: #fff;
+    border-radius: 3px;
     text-align: center;
-    text-justify: start;
-    margin: space-around;
     list-style-type: none;
+    cursor: pointer;
+}
+.departments>li:hover{
+    background-color:#939391;
+    border: solid 1px #4A4A4A;
+    color:#fff;
 }
 
 .departments>.active {
     background-color: #4A4A4A;
+    color: white;
+}
+
+.departments>.active:hover{
+    background-color: #4A4A4A;
+    color: white;
 }
 
 #add-new-department{
@@ -472,35 +487,72 @@ body>header ul>li:last-child {
     display: flex;
     flex-direction: column;
     background-color: #D9D9D9;
-    margin: 0 0 .1em 3em;
+    margin: 0 0 .1em 2em;
     padding: 0;
 }
 
 .tickets-list>ul>li {
     background-color: #fff;
     margin: .65em;
+    margin-left: 0;
+    margin-right: 0;
     border-radius: 4px;
 }
 
+.tickets-list>ul>li:hover{
+    background-color: #f1efef;
+}
+
+.tickets-list>ul>li:first-child {
+    margin-top:0;
+}
 .tickets-list>ul>li>ul {
     display: flex;
     flex-direction: row;
     height: 4em;
-    gap: 16em;
+    padding: 0;
+    justify-content: space-between;
+    white-space: nowrap;
 }
+
+
 
 .tickets-list>ul>li>ul>li {
     padding: .5em;
     align-items: center;
     justify-items: center;
+    cursor: pointer;
 }
 
 .tickets-list>ul>li>ul p {
-    text-align: center;
+    text-align: left;
     text-justify: center;
     padding: 0;
     width: auto;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.tickets-list>ul>li>ul li:first-child{
+    align-self: flex-start;
+    flex: 1 10%;
+}
+
+.tickets-list>ul>li>ul li:nth-child(2){
+    align-self: flex-start;
+    flex: 1 40%;
+}
+
+.tickets-list>ul>li>ul li:nth-child(3){
+    align-self: flex-end;
+    flex: 1 20%;
+}
+
+.tickets-list>ul>li>ul li:nth-child(4){
+    align-self: flex-end;
+}
+
 
 /* End of main content */
 /* Start of footer */
