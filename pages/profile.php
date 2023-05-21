@@ -22,7 +22,6 @@
     $departments = getDepartments();
     $usersDepartments = getUsersDepartments();
 
-
     // viewing own profile
     if ($username == $_SESSION['username']) {
         if($user['role'] != 'client'){

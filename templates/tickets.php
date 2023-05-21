@@ -42,7 +42,7 @@
 <?php
     }
 
-    function outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies){
+    function outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies, $statuses, $role){
         ob_start();
 ?>
         <div class="ticket-discussion">
@@ -50,15 +50,19 @@
             <div class="ticket">
                 <div class="ticket-header">
                     <div class="ticket-id-title">
-                        <h1>#<?=$ticket['id']?></h1>
+                        <h1 id="ticket-id">#<?=$ticket['id']?></h1>
                         <h1><?=$ticket['title']?></h1>
                     </div>
                     <h1><?=$ticket['status']?></h1>
                 </div>
                 <div class="hashtags">
-                    <?php foreach($ticketHashtags as $hashtag)
+                    <?php foreach($ticketHashtags as $hashtag){
                         outputHashtag($hashtag);
+                    }
+                    if($role != 'client'){
                     ?>
+                    <button id="add-hashtag-button">Add hashtag</button>
+                <?php } ?>
                 </div>
                 <div class="ticket-body">
                     <p><?=$ticket['introduction']?></p>
