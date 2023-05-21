@@ -42,7 +42,7 @@
 <?php
     }
 
-    function outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies, $statuses, $departments, $role){
+    function outputTicketDiscussion($ticket, $ticketHashtags, $ticketReplies, $statuses, $departments, $role){
         ob_start();
 ?>
         <div class="ticket-discussion">

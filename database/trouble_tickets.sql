@@ -1,7 +1,6 @@
 .mode columns
 .headers on
 
-DROP TABLE IF EXISTS ticket_history;
 DROP TABLE IF EXISTS ticket_hashtag;
 DROP TABLE IF EXISTS ticket;
 DROP TABLE IF EXISTS user;
@@ -41,14 +40,6 @@ CREATE TABLE tickets (
 CREATE TABLE hashtags (
   id INTEGER PRIMARY KEY,                                          -- ticket_hashtag id
   name VARCHAR                                                     -- hashtag name
-);
-
-CREATE TABLE ticket_history (
-  id INTEGER PRIMARY KEY,                                          -- ticket_history id
-  ticket_id INTEGER REFERENCES tickets(id),                        -- ticket id
-  user INTEGER REFERENCES users(username),                         -- user id
-  action VARCHAR,                                                  -- action description
-  action_date VARCHAR                                              -- action date
 );
 
 CREATE TABLE ticket_replies (

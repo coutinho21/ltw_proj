@@ -58,11 +58,6 @@
     if($username != $newUsername){
         updateUsername($username, $newUsername);
     }
-/*
-    tickets
-    users_departments
-    ticket_history
-    ticket_replies
-*/
+    
     header('Location: ../pages/profile.php?username=' . $newUsername);
 ?>
