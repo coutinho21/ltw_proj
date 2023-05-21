@@ -53,5 +53,16 @@
     else if($user['role'] == 'agent'){
         updateEveryField($username, $newUsername, $newName, $newEmail, $newRole, $departments);
     }
+
+    // update database with the new username
+    if($username != $newUsername){
+        updateUsername($username, $newUsername);
+    }
+/*
+    tickets
+    users_departments
+    ticket_history
+    ticket_replies
+*/
     header('Location: ../pages/profile.php?username=' . $newUsername);
 ?>
