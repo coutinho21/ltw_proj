@@ -1,13 +1,13 @@
 <?php
     function outputFAQs($faqs){
 ?>
-        <section class="faqs">
+        <main class="faqs">
             <h2>Frequently Asked Questions</h2>
 <?php
             foreach($faqs as $faq)
                 outputFAQ($faq);
 ?>
-        </section>
+        </main>
 <?php
     }
 
