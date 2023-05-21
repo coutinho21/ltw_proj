@@ -455,9 +455,9 @@ body>header ul>li:last-child {
     display: flex;
     flex-direction: row;
     height: 4em;
-    gap: 16em;
     padding: 0;
     justify-content: space-between;
+    white-space: nowrap;
 }
 
 
@@ -492,7 +492,6 @@ body>header ul>li:last-child {
 
 .tickets-list>ul>li>ul li:nth-child(4){
     align-self: flex-end;
-    flex: 1 20%;
 }
 
 
