@@ -100,4 +100,13 @@
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    function newHashtag($newHashtag, $ticket_id){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('INSERT INTO hashtags (name) VALUES (?)');
+        $stmt->execute(array($newHashtag));
+        $hashtag_id = $db->lastInsertId();
+        $stmt = $db->prepare('INSERT INTO tickets_hashtags (ticket_id, hashtag_id) VALUES (?, ?)');
+        $stmt->execute(array($ticket_id, $hashtag_id));
+    }
 ?>

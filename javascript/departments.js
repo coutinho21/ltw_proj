@@ -49,7 +49,6 @@ function openNewDepartment() {
                 // new department submit button
                 const departmentSubmitButton = document.createElement("button");
                 departmentSubmitButton.type = "submit";
-                departmentSubmitButton.name = "submit";
                 departmentSubmitButton.innerText = "Submit";
 
                 newDepartmentForm.appendChild(departmentTitle);
