@@ -29,6 +29,13 @@ function openNewDepartment() {
                 newDepartmentForm.style.top = (parseInt(e.clientY) + parseInt(window.scrollY)).toString() + "px";
                 newDepartmentForm.style.left = (parseInt(e.clientX) + parseInt(window.scrollX) - 100).toString() + "px";
 
+                // new department csrf input
+                const csrf = document.createElement("input");
+                csrf.type = "hidden";
+                csrf.name = "csrf";
+                csrf.value = document.getElementById("csrf").textContent;
+                newDepartmentForm.appendChild(csrf);
+
                 // new department title
                 const departmentTitle = document.createElement("h4");
                 departmentTitle.innerText = "New Department";

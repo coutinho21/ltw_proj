@@ -1,5 +1,6 @@
 <?php
     require_once(__DIR__ . '/../database/users.php');
+    require_once(__DIR__ . '/../utilities/utilities.php');
 
     session_start();
 
@@ -8,12 +9,17 @@
         exit();
     }
 
+    if ($_SESSION['csrf'] !== $_POST['csrf']) {
+        header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+        exit();
+    }
+
     $visiting = $_POST['visiting'];
     $email = $_POST['user_email'];
-    $currentPassword = $_POST['current_password'];
-    $newPassword = $_POST['new_password'];
-    $confirmPassword = $_POST['confirm_new_password'];
-    $username = $_POST['user'];
+    $currentPassword = cleanInput($_POST['current_password']);
+    $newPassword = cleanInput($_POST['new_password']);
+    $confirmPassword = cleanInput($_POST['confirm_new_password']);
+    $username = cleanInput($_POST['user']);
 
     if(!loginUser($email, $currentPassword)){
         if($visiting){

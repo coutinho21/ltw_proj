@@ -1,7 +1,8 @@
 <?php
     require_once(__DIR__ . '/../database/users.php');
     require_once(__DIR__ . '/../database/tickets.php');
-
+    require_once(__DIR__ . '/../utilities/utilities.php');
+    
     session_start();
 
     if(!isset($_SESSION['username'])){
@@ -9,11 +10,16 @@
         exit();
     }
 
+    if ($_SESSION['csrf'] !== $_POST['csrf']) {
+        header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
+        exit();
+    }
+
     $visiting = $_POST['visiting'];
-    $username = $_POST['user'];
-    $newUsername = $_POST['new_username'];
-    $newName = $_POST['new_name'];
-    $newEmail = $_POST['new_email'];
+    $username = cleanInput($_POST['user']);
+    $newUsername = cleanInput($_POST['new_username']);
+    $newName = cleanInput($_POST['new_name']);
+    $newEmail = cleanInput($_POST['new_email']);
     $newRole = $_POST['new_role'];
     $departments = $_POST['departments'];
     $user = getUser($username);

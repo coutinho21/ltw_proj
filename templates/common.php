@@ -63,6 +63,7 @@
 ?>
         </nav>
         <main class="main-content">
+            <p id="csrf" style="display: none;"><?=$_SESSION['csrf']?></p>
             <div class="departments-list">
                 <ul class="departments">
 <?php 

@@ -61,6 +61,13 @@ function newFAQ() {
                 const faqContentDiv = document.createElement("div");
                 faqContentDiv.classList.add("faq-content");
 
+                // new faq csrf input
+                const csrf = document.createElement("input");
+                csrf.type = "hidden";
+                csrf.name = "csrf";
+                csrf.value = document.getElementById("csrf").textContent;
+                faqContentDiv.appendChild(csrf);
+
                 // new faq question and answer inputs
                 const faqQuestionInput = document.createElement("input");
                 faqQuestionInput.type = "text";
@@ -130,6 +137,13 @@ function openOptions() {
                         // edit faq content div
                         const faqContentDiv = document.createElement("div");
                         faqContentDiv.classList.add("faq-content");
+
+                        // edit faq csrf input
+                        const csrf = document.createElement("input");
+                        csrf.type = "hidden";
+                        csrf.name = "csrf";
+                        csrf.value = document.getElementById("csrf").textContent;
+                        faqContentDiv.appendChild(csrf);
 
                         // edit faq id input
                         const faqIdInput = document.createElement("input");

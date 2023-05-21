@@ -2,6 +2,7 @@
     function outputFAQs($faqs, $role){
 ?>
         <main class="faqs">
+            <p id="csrf" style="display: none;"><?=$_SESSION['csrf']?></p>
             <div class="title-new-faq">
                 <h2>Frequently Asked Questions</h2>
 <?php

@@ -10,8 +10,8 @@
         exit();
     }
 
-    $search = cleanInput($_GET['department']);
-    $tickets = getTicketsByDepartment($search);
+    $department = cleanInput($_GET['department']);
+    $tickets = getTicketsByDepartment($department);
     $user = getUser($_SESSION['username']);
     $response = array();
 

@@ -1,20 +1,19 @@
 <?php
     require_once(__DIR__ . '/../database/users.php');
-    
-    session_start();
+    require_once(__DIR__ . '/../utilities/utilities.php');
 
-    var_dump($_SESSION);
+    session_start();
 
     if (isset($_SESSION['username'])){
         header('Location: ../pages/register.php');
         exit();
     }
 
-    $name = $_POST['name'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $confimPassword = $_POST['confirm_password'];
+    $name = cleanInput($_POST['name']);
+    $username = cleanInput($_POST['username']);
+    $email = cleanInput($_POST['email']);
+    $password = cleanInput($_POST['password']);
+    $confimPassword = cleanInput($_POST['confirm_password']);
 
     
     if(getUserByEmail($email)){
@@ -34,6 +33,7 @@
 
     addUser($name, $username, $email, $password);
     $_SESSION['username'] = $username;
+    $_SESSION['csrf'] = generateToken();
     
     header('Location: ../pages/register.php');
 ?>
