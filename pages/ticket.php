@@ -22,6 +22,6 @@
     $ticket['status'] = $statuses[$ticket['status_id'] - 1]['name'];
 
     outputHeader();
-    outputAddSearchFilter(outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies, $statuses, $user['role']), $departments, $user['role']);
+    outputAddSearchFilter(outputTicketDiscussion($ticket, $ticketHistory, $ticketHashtags, $ticketReplies, $statuses, $departments, $user['role']), $departments, $user['role']);
     outputFooter();
 ?>

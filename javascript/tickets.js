@@ -1,7 +1,9 @@
+import { encodeForAjax } from '../utilities/utilities.js';
+
 export function openTicket() {
     const tickets = document.querySelectorAll('.ticket');
 
-    if (tickets && !window.location.href.includes('tickets.php')) {
+    if (tickets && !window.location.href.includes('ticket.php')) {
         tickets.forEach(ticket => {
             ticket.addEventListener('click', () => {
                 window.location.href = 'ticket.php?id=' + ticket.querySelector('li:first-child p').textContent.substring(1);
@@ -80,6 +82,130 @@ function addHashtag() {
     }
 }
 
+function changeStatus() {
+    const status = document.getElementById('ticket-status');
+
+    if(status) {
+        status.addEventListener('change', function() { 
+            const ticketId = document.getElementById('ticket-id').textContent.substring(1);
+            const statusId = document.getElementById('ticket-status').value;
+            const status = document.getElementById('ticket-status').options[document.getElementById('ticket-status').selectedIndex].text;
+            const csrf = document.getElementById('csrf').textContent;
+            const departmentId = document.getElementById('ticket-department').value;
+            
+            if(status !== 'assigned') {
+                const request = new XMLHttpRequest();
+                request.open('post', '../actions/action_change_ticket_status.php', true);
+                request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                request.send(encodeForAjax({ticketId: ticketId, statusId: statusId, csrf: csrf}));
+                window.location.reload();
+            }
+            else {
+               openAssignAgent(departmentId);
+            }
+        });
+    }
+}
+
+function closeOpenAssignAgent() {
+    document.addEventListener("click", (e) => {
+        const assign = document.getElementById("assign-agent");
+
+        if (assign) {
+            if (assign.contains(e.target)) {
+                return;
+            }
+            assign.remove();
+            window.location.reload();
+        }
+    });
+}
+
+async function openAssignAgent(departmentId) {
+    const responseAgents = await fetch('../api/data.php?data=agents');
+    const responseUsersDepartments = await fetch('../api/data.php?data=users_departments');
+    var agents = await responseAgents.json();
+    const usersDepartments = await responseUsersDepartments.json();
+
+    var agentsStay = [];
+    usersDepartments.forEach(userDepartment => {
+        agents.forEach(agent => {
+            if((agent.username == userDepartment.user) && (userDepartment.department_id == departmentId) && !(agent in agentsStay)) {
+                agentsStay.push(agent);
+            }
+        });
+    });
+    agents = agentsStay;
+
+    const assignAgentDiv = document.createElement('div');
+    assignAgentDiv.id = 'assign-agent';
+
+    const assignAgentTitle = document.createElement('h4');
+    assignAgentTitle.textContent = 'Assign Agent';
+    assignAgentDiv.appendChild(assignAgentTitle);
+
+    const assignAgentList = document.createElement('ul');
+    assignAgentList.id = 'assign-agent-list';
+
+    agents.forEach(agent => {
+        const assignAgent = document.createElement('li');
+        const assignAgentText = document.createElement('p');
+        assignAgentText.textContent = agent.username;
+        assignAgent.appendChild(assignAgentText);
+        assignAgentList.appendChild(assignAgent);
+    });
+
+    assignAgentDiv.appendChild(assignAgentList);
+
+    const assignAgentButton = document.createElement('button');
+    assignAgentButton.id = 'assign-agent-button';
+    assignAgentButton.textContent = 'Assign';
+    assignAgentDiv.appendChild(assignAgentButton);
+
+    const main = document.querySelector('.ticket');
+    main.appendChild(assignAgentDiv);
+    assignAgent();
+    alteranteAssignedAgent();
+}
+
+function alteranteAssignedAgent() {
+    const assignedAgentText = document.getElementById('assigned-agent').textContent;
+    const assignedAgentList = document.querySelectorAll('#assign-agent-list li');
+
+    assignedAgentList.forEach(agent => {
+        if(agent.textContent == assignedAgentText) {
+            agent.classList.add('selected');
+        }
+        agent.addEventListener('click', function() {
+            assignedAgentList.forEach(agent => {
+                agent.classList.remove('selected');
+            });
+            agent.classList.add('selected');
+        });
+    });
+}
+
+function assignAgent() {
+    const assignAgentButton = document.getElementById('assign-agent-button');
+
+    if(assignAgentButton) {
+        assignAgentButton.addEventListener('click', function() {
+            const ticketId = document.getElementById('ticket-id').textContent.substring(1);
+            const statusId = document.getElementById('ticket-status').value;
+            const assignedAgent = document.querySelector('#assign-agent-list li.selected p').textContent;
+            const csrf = document.getElementById('csrf').textContent;
+
+            const request = new XMLHttpRequest();
+            request.open('post', '../actions/action_change_ticket_status.php', true);
+            request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            request.send(encodeForAjax({ticketId: ticketId, statusId: statusId, assignedAgent: assignedAgent, csrf: csrf}));
+            window.location.reload();
+        });
+    }
+}
+
 openTicket();
 addHashtag();
 closeAddHashtag();
+changeStatus();
+closeOpenAssignAgent();

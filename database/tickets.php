@@ -87,6 +87,18 @@
         return $stmt->fetchAll();
     }
 
+    function updateStatus($ticket_id, $status_id){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('UPDATE tickets SET status_id = ? WHERE id = ?');
+        $stmt->execute(array($status_id, $ticket_id));
+    }
+
+    function updateStatusWithAgent($ticket_id, $agent, $status_id){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('UPDATE tickets SET status_id = ?, agent = ? WHERE id = ?');
+        $stmt->execute(array($status_id, $agent, $ticket_id));
+    }
+
     function getHashtags(){
         $db = getDatabaseConnection();
         $stmt = $db->prepare('SELECT * FROM hashtags');

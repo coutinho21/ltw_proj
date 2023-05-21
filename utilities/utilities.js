@@ -43,3 +43,9 @@ export function buildTicket(ticket){
 export function isArray(what) {
     return Object.prototype.toString.call(what) === '[object Array]';
 }
+
+export function encodeForAjax(data) {
+    return Object.keys(data).map(function(k){
+      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
+    }).join('&')
+}
