@@ -14,8 +14,11 @@
             <link rel="stylesheet" href="../css/profile.css">
             <link rel="stylesheet" href="../css/new_ticket.css">
             <link rel="stylesheet" href="../css/faqs.css">
-            <script src="../javascript/script.js" defer></script>
-            <script src="../errors/errors.js" defer></script>
+            <script type="module" src="../javascript/tickets.js" defer></script>
+            <script type="module" src="../javascript/filters.js" defer></script>
+            <script type="module" src="../javascript/edit_profile.js" defer></script>
+            <script type="module" src="../javascript/faqs.js" defer></script>
+            <script type="module" src="../errors/errors.js" defer></script>
         </head>
         <body>
             <header>
@@ -43,20 +46,23 @@
 <?php 
     } 
 
-    function outputAddSearchFilter($content, $departments){
+    function outputAddSearchFilter($content, $departments, $role){
 ?>
-        <nav class="add-and-search">
+        <nav id="add-and-search">
             <a href="../pages/new_ticket.php">New ticket</a>
             <input name="search_ticket" placeholder="Search ticket" class="search-ticket"/>
+            <?php if($role != 'client') { ?>
+                <div id="filters-div">
+                    <button type="button" id="filters-button"><img src="../icons/filter.png" alt="filter"/></button>
+                </div>
+            <?php }?>
         </nav>
         <main class="main-content">
-            <div class="filter">
-                <ul class="departments">
-                    <?php foreach($departments as $department){ ?>
-                        <li><p><?=$department['name']?></p></li>
-                    <?php } ?>
-                </ul>
-            </div>
+            <ul class="departments">
+                <?php foreach($departments as $department){ ?>
+                    <li><p><?=$department['name']?></p></li>
+                <?php } ?>
+            </ul>
             <?=$content?>
         </main>
 <?php

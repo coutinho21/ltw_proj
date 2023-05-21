@@ -45,10 +45,54 @@
         $stmt->execute(array($newUsername, $newName, $newEmail, $username));
     }
 
+    function updateClientVisiting($username, $newUsername, $newName, $newEmail, $newRole){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('UPDATE users SET username = ?, name = ?, email = ?, role = ? WHERE username = ?');
+        $stmt->execute(array($newUsername, $newName, $newEmail, $newRole, $username));
+    }
+
+    function updateUserWithDepartments($username, $newUsername, $newName, $newEmail, $departments){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('UPDATE users SET username = ?, name = ?, email = ? WHERE username = ?');
+        $stmt->execute(array($newUsername, $newName, $newEmail, $username));
+        $stmt = $db->prepare('DELETE FROM users_departments WHERE user = ?');
+        $stmt->execute(array($newUsername));
+        foreach($departments as $department){
+            $stmt = $db->prepare('INSERT INTO users_departments (user, department_id) VALUES (?, ?)');
+            $stmt->execute(array($newUsername, $department));
+        }
+    }
+
+    function updateEveryField($username, $newUsername, $newName, $newEmail, $newRole, $departments){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('UPDATE users SET username = ?, name = ?, email = ?, role = ? WHERE username = ?');
+        $stmt->execute(array($newUsername, $newName, $newEmail, $newRole, $username));
+        $stmt = $db->prepare('DELETE FROM users_departments WHERE user = ?');
+        $stmt->execute(array($newUsername));
+        foreach($departments as $department){
+            $stmt = $db->prepare('INSERT INTO users_departments (user, department_id) VALUES (?, ?)');
+            $stmt->execute(array($newUsername, $department));
+        }
+    }
+
     function changeUserPassword($email, $newPassword){
         $options = ['cost' => 10];
         $db = getDatabaseConnection();
         $stmt = $db->prepare('UPDATE users SET password = ? WHERE email = ?');
         $stmt->execute(array(password_hash($newPassword, PASSWORD_BCRYPT, $options), $email));
+    }
+
+    function getAgents(){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM users WHERE role = ? OR role = ?');
+        $stmt->execute(array('agent', 'admin'));
+        return $stmt->fetchAll();
+    }
+
+    function getUsersDepartments(){
+        $db = getDatabaseConnection();
+        $stmt = $db->prepare('SELECT * FROM users_departments');
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 ?>

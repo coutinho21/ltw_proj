@@ -1,5 +1,5 @@
 <?php
-    function outputTickets($tickets){
+    function outputTickets($tickets, $statuses){
         ob_start();
 ?>
         <div class="tickets-list">
@@ -9,6 +9,7 @@
                 outputNoTickets();
             else{
                 foreach($tickets as $ticket){
+                    $ticket['status'] = $statuses[$ticket['status_id'] - 1]['name'];
                     outputTicket($ticket);
                 }
             }

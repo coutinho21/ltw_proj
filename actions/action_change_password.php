@@ -8,27 +8,49 @@
         exit();
     }
 
-
+    $visiting = $_POST['visiting'];
     $email = $_POST['user_email'];
     $currentPassword = $_POST['current_password'];
     $newPassword = $_POST['new_password'];
     $confirmPassword = $_POST['confirm_new_password'];
+    $username = $_POST['user'];
 
     if(!loginUser($email, $currentPassword)){
-        header('Location: ../pages/change_password.php?error=4');
-        exit();
+        if($visiting){
+            header('Location: ../pages/change_password.php?error=4&username=' . $username);
+            exit();
+        }
+        else{
+            header('Location: ../pages/change_password.php?error=4');
+            exit();
+        }
     }
 
     if($newPassword != $confirmPassword){
-        header('Location: ../pages/change_password.php?error=1');
-        exit();
+        if($visiting){
+            header('Location: ../pages/change_password.php?error=1&username=' . $username);
+            exit();
+        }
+        else{
+            header('Location: ../pages/change_password.php?error=1');
+            exit();
+        }
     }
 
     if(strlen($newPassword) < 8){
-        header('Location: ../pages/change_password.php?error=5');
-        exit();
+        if($visiting) {
+            header('Location: ../pages/change_password.php?error=5&username=' . $username);
+            exit();
+        }
+        else {
+            header('Location: ../pages/change_password.php?error=5');
+            exit();
+        }
     }
 
     changeUserPassword($email, $newPassword);
-    header('Location: ../pages/profile.php');
+    if($visiting)
+        header('Location: ../pages/profile.php?username=' . $username);
+    else
+        header('Location: ../pages/profile.php');
 ?>

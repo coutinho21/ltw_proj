@@ -13,20 +13,27 @@
     $search = cleanInput($_GET['department']);
     $tickets = getTicketsByDepartment($search);
     $user = getUser($_SESSION['username']);
-    
+    $response = array();
+
     if($user['role'] == 'client'){
-        foreach ($tickets as $key => $ticket){
+        foreach ($tickets as $ticket){
             if($ticket['client'] != $user['username']){
-                unset($tickets[$key]);
+                continue;
             }
+            $response[] = $ticket;
         }
     }
+    else {
+        $response = $tickets;
+    }
 
-    // re-format date before going to json
-    $tickets = array_map(function($ticket){
+    // re-format date and add status before going to json
+    $response = array_map(function($ticket){
+        $statuses = getStatuses();
         $ticket['date'] = date('d-m-Y', $ticket['date']);
+        $ticket['status'] = $statuses[$ticket['status_id'] - 1]['name'];
         return $ticket;
-    }, $tickets);
+    }, $response);
 
-    echo json_encode($tickets);
+    echo json_encode($response);
 ?>

@@ -5,11 +5,19 @@
 
     session_start();
 
-    if(!isset($_SESSION['username']))
+    if (!isset($_SESSION['username'])) {
         header('Location: index.php');
+        exit();
+    }
 
     $user = getUser($_SESSION['username']);
+    $visiting = false;
+    if (isset($_GET['username'])) {
+        $user = getUser($_GET['username']);
+        $visiting = true;
+    }
+
     outputHeader(); 
-    outputChangePassword($user);
+    outputChangePassword($user, $visiting);
     outputFooter();
 ?>

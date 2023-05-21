@@ -10,7 +10,7 @@
     background-color: #fff;
     padding: 2em;
     justify-content: space-between;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -71,7 +71,8 @@
     margin-bottom: 0px;
 }
 
-.profile-info p {
+.profile-info p ,
+.edit-profile p {
     margin: 0.5em 0;
     font-weight: 500;
     margin-top: 0px;
@@ -98,10 +99,88 @@
     border-right: none;
 }
 
+.edit-profile-form select {
+    padding: 0.5em;
+    border-bottom: 1px solid #000;
+    margin: 0.5em 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: #fff;
+}
+
+.edit-profile-form li {
+    list-style-type: disc;
+    padding: 0;
+    margin: 0;
+}
+
+.edit-profile-form li:last-child {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.edit-profile-form li #add-remove-user-department {
+    text-decoration: underline;
+}
+
 .change-password input:hover,
 .edit-profile-form input:hover {
     border: 1px solid #000;
     border-radius: 5px;
+}
+
+#manage-departments {
+    position: absolute;
+    bottom: 10%;
+    width: 200px;
+    height: fit-content;
+    background-color: #fff;
+    border: 1px solid #4A4A4A;
+    border-radius: 5px;
+    justify-content: center;
+}
+
+#manage-departments>h4 {
+    margin: 1em 0 0 0;
+    padding: 1em;
+    text-align: center;
+}
+
+#manage-departments>ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1em;
+}
+
+#manage-departments>ul>li {
+    padding: 1em;
+    justify-self: left;
+}
+
+#manage-departments>ul>li>p {
+    margin: 0;
+    padding: 0;
+}
+
+#manage-departments>input {
+    margin: 1em;
+    padding: .5em;
+    border-style: none;
+    border-radius: 4px;
+    background-color: #D9D9D9;
+}
+
+#manage-departments>button {
+    margin: 1em;
+    padding: .5em;
+    border-style: none;
+    border-radius: 4px;
+    background-color: #939391;
+    color: #FFFFFF;
 }
 
 .cancel-done {

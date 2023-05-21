@@ -2,6 +2,7 @@
     require_once(__DIR__ . '/../templates/common.php');
     require_once(__DIR__ . '/../templates/profile.php');
     require_once(__DIR__ . '/../database/users.php');
+    require_once(__DIR__ . '/../database/tickets.php');
 
     session_start();
 
@@ -11,18 +12,49 @@
 
     outputHeader(); 
 
+    $user = getUser($_SESSION['username']);
+
     $username = $_SESSION['username'];
     if(isset($_GET['username'])){
         $username = $_GET['username'];
     }
 
+    $departments = getDepartments();
+    $usersDepartments = getUsersDepartments();
+
+
+    // viewing own profile
     if ($username == $_SESSION['username']) {
-        $user = getUser($username);
-        outputProfile($user);
+        if($user['role'] != 'client'){
+            $user['departments'] = array();
+            foreach($usersDepartments as $usersDepartment){
+                if($usersDepartment['user'] == $user['username']){
+                    $user['departments'][] = $departments[$usersDepartment['department_id'] - 1]['name'];
+                }
+            }
+        }
+        outputProfile($user, false);
     }
+    // viewing other profile
     else {
-        $user = getUser($username);
-        outputUserProfile($user);
+        $userToVisit = getUser($username);
+
+        // get departments for agents and admins
+        if($userToVisit['role'] != 'client'){
+            $userToVisit['departments'] = array();
+            foreach($usersDepartments as $usersDepartment){
+                if($usersDepartment['user'] == $userToVisit['username']){
+                    $userToVisit['departments'][] = $departments[$usersDepartment['department_id'] - 1]['name'];
+                }
+            }
+        }
+
+        if($user['role'] == 'admin' && $userToVisit['role'] != 'admin'){
+            outputProfile($userToVisit, true);
+        }
+        else {
+            outputUserProfile($userToVisit);
+        }
     }
     
     outputFooter();

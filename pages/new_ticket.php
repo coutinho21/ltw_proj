@@ -7,8 +7,9 @@
     session_start();
 
     $departments = getDepartments();
+    $user = getUser($_SESSION['username']);
 
     outputHeader();
-    outputAddSearchFilter(outputNewTicket($departments), $departments);
+    outputAddSearchFilter(outputNewTicket($departments), $departments, $user['role']);
     outputFooter();
 ?>
