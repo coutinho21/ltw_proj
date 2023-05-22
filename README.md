@@ -8,5 +8,6 @@ Developed by:
 
 Commands to execute project:
  - git clone git@github.com:FEUP-LTW-2023/project-ltw10g07.git
- - git checkout final-delivery-v1
+ - cd project-ltw10g07
+ - git checkout tags/final-delivery-v1
  - php -S localhost:9000
